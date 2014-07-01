@@ -1,0 +1,4 @@
+GridMin
+=======
+
+Grid minimization algorithm
