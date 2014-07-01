@@ -1,0 +1,2490 @@
+1
+                 Chemistry at HARvard Macromolecular Mechanics
+           (CHARMM) - Developmental Version 36b1     August 15, 2011            
+       Copyright(c) 1984-2001  President and Fellows of Harvard College
+                              All Rights Reserved
+     Current operating system: Linux-2.6.32-279.2.1.el6.x86_64(x86_64)@mddb     
+                 Created on 11/19/13 at 12:15:18 by user: vmohan3     
+
+            Maximum number of ATOMS:     25140, and RESidues:        8380
+ RDTITL> * DYNAMICS OF DIPEPTIDES IN IMPLICIT SOLVENT
+ RDTITL> *  FILE FOR STARTING POINTS FOR NAMD RUNS -- TEMPLATE FOR HISTOGRAM OF STARTING POINTS
+ RDTITL>  
+  
+ CHARMM>     
+  
+ CHARMM>    bomlev -1
+  
+ CHARMM>    OPEN UNIT 21 NAME /damsl/mddb/data/alanine_dipeptide/charmm/imp/inp/top_all36_prot_lipid.rtf READ FORM
+ VOPEN> Attempting to open::/damsl/mddb/data/alanine_dipeptide/charmm/imp/inp/top_all36_prot_lipid.rtf::
+ OPNLGU> Unit 21 opened for READONLY access to /damsl/mddb/data/alanine_dipeptide/charmm/imp/inp/top_all36_prot_lipid.rtf
+  
+ CHARMM>    READ RTF card UNIT 21
+ MAINIO> Residue topology file being read from unit  21.
+ TITLE> *> CHARMM22 ALL-HYDROGEN TOPOLOGY FILE FOR PROTEINS AND LIPIDS <<
+ TITLE> *>>>>>> INCLUDES PHI, PSI CROSS TERM MAP (CMAP) CORRECTION <<<<<<
+ TITLE> *>>>>>>>>>>>>>>>>>>>>>>   JULY 2004    <<<<<<<<<<<<<<<<<<<<<<<<<<
+ TITLE> * ALL COMMENTS TO ADM JR. VIA THE CHARMM WEB SITE: WWW.CHARMM.ORG
+ TITLE> *               PARAMETER SET DISCUSSION FORUM
+ TITLE> *
+  
+ CHARMM>    CLOSE UNIT 21
+ VCLOSE: Closing unit   21 with status "KEEP"
+  
+ CHARMM>     
+  
+ CHARMM>    OPEN UNIT 22 NAME /damsl/mddb/data/alanine_dipeptide/charmm/imp/inp/par_all36_prot_lipid.prm READ FORM
+ VOPEN> Attempting to open::/damsl/mddb/data/alanine_dipeptide/charmm/imp/inp/par_all36_prot_lipid.prm::
+ OPNLGU> Unit 22 opened for READONLY access to /damsl/mddb/data/alanine_dipeptide/charmm/imp/inp/par_all36_prot_lipid.prm
+  
+ CHARMM>    READ PARA card UNIT 22
+
+          PARAMETER FILE BEING READ FROM UNIT 22
+ TITLE> *>CHARMM22 ALL-HYDROGEN PARAMETER FILE FOR PROTEINS AND LIPIDS <<
+ TITLE> *>>>>> INCLUDES PHI, PSI CROSS TERM MAP (CMAP) CORRECTION <<<<<<<
+ TITLE> *>>>>>>>>>>>>>>>>>>>>>>   JULY, 2003   <<<<<<<<<<<<<<<<<<<<<<<<<<
+ TITLE> * ALL COMMENTS TO ADM JR. VIA THE CHARMM WEB SITE: WWW.CHARMM.ORG
+ TITLE> *               PARAMETER SET DISCUSSION FORUM
+ TITLE> *
+ PARMIO> NONBOND, HBOND lists and IMAGE atoms cleared.
+  
+ CHARMM>    CLOSE UNIT 22
+ VCLOSE: Closing unit   22 with status "KEEP"
+  
+ CHARMM>     
+  
+ CHARMM>    open read unit 11 card name /damsl/mddb/data/alanine_dipeptide/charmm/imp/inp/acepar19.inp
+ VOPEN> Attempting to open::/damsl/mddb/data/alanine_dipeptide/charmm/imp/inp/acepar19.inp::
+ OPNLGU> Unit 11 opened for READONLY access to /damsl/mddb/data/alanine_dipeptide/charmm/imp/inp/acepar19.inp
+  
+ CHARMM>    read aceparameters card unit 11
+
+          ACE PARAMETERS BEING READ FROM UNIT 11
+ TITLE> * ACE2 PARAMETER FILE (UNDER CONSTRUCTION, JAN 2002)
+ TITLE> *        >>>> FOR USE WITH PARAM19 <<<<
+ TITLE> * AUTHOR: MICHAEL SCHAEFER
+ TITLE> * RESERVED (4-LETTER) KEYWORDS: VOLU, SIGM, A012, RMIN, EQUI, END.
+ TITLE> * THE FILE MUST END WITH THE END KEYWORD.
+ TITLE> *
+
+         EFFECTIVE VOLUME PARAMETERS
+        ITC   TYPE   CODE       VOLUME
+         27   H         1        0.000
+         32   HC        2        0.000
+          1   C        20        8.895
+ ACERDR> WARNING: ATOM TYPE FOR VOLUME CH1E DOESNT EXIST
+ ACERDR> WARNING: ATOM TYPE FOR VOLUME CH2E DOESNT EXIST
+ ACERDR> WARNING: ATOM TYPE FOR VOLUME CH3E DOESNT EXIST
+ ACERDR> WARNING: ATOM TYPE FOR VOLUME CR1E DOESNT EXIST
+         42   N        50        9.558
+ ACERDR> WARNING: ATOM TYPE FOR VOLUME NR   DOESNT EXIST
+         47   NP       59       11.495
+         44   NH1      54       14.944
+         45   NH2      55       22.129
+         46   NH3      56       20.641
+         43   NC2      57       21.401
+ ACERDR> WARNING: ATOM TYPE FOR VOLUME NH2P DOESNT EXIST
+         53   O        70       22.315
+         55   OC       72       20.485
+         56   OH1      73       23.266
+         61   S        81       26.963
+ ACERDR> WARNING: ATOM TYPE FOR VOLUME SH1E DOESNT EXIST
+ ACERDR> WARNING: ATOM TYPE FOR VOLUME SSO4 DOESNT EXIST
+         71   FE       90       10.703
+  
+ CHARMM>    close unit 11
+ VCLOSE: Closing unit   11 with status "KEEP"
+  
+ CHARMM>     
+  
+ CHARMM>    read sequ card
+ MAINIO> Sequence information being read from unit   5.
+ RDTITL> * TRI-PEPTIDE
+ RDTITL> *
+  
+ SEQRDR>    3
+  
+ SEQRDR>    ALA ALA ALA
+
+          RESIDUE SEQUENCE --     3 RESIDUES
+          ALA ALA ALA 
+  
+ CHARMM>    generate AAA first NTER last CTER setu
+ THE PATCH 'NTER' WILL BE USED FOR THE FIRST RESIDUE
+ THE PATCH 'CTER' WILL BE USED FOR THE LAST  RESIDUE
+ GENPSF> Segment   1 has been generated. Its identifier is AAA.
+ PSFSUM> PSF modified: NONBOND lists and IMAGE atoms cleared.
+ PSFSUM> Summary of the structure file counters :
+         Number of segments      =        1   Number of residues   =        3
+         Number of atoms         =       33   Number of groups     =        9
+         Number of bonds         =       32   Number of angles     =       57
+         Number of dihedrals     =       74   Number of impropers  =        5
+         Number of cross-terms   =        1
+         Number of HB acceptors  =        4   Number of HB donors  =        5
+         Number of NB exclusions =        0   Total charge =   -0.00000
+  
+ CHARMM>    ! Initaial Coordinates: auto-generated or read from a crd file.
+ CHARMM>    ic para
+  
+ CHARMM>    ic seed 1 n 1 ca 1 c
+  
+ CHARMM>    ic build
+  
+ CHARMM>    print coor
+
+          COORDINATE FILE MODULE
+ TITLE>  * DYNAMICS OF DIPEPTIDES IN IMPLICIT SOLVENT
+ TITLE>  *  FILE FOR STARTING POINTS FOR NAMD RUNS -- TEMPLATE FOR HISTOGRAM OF STARTING
+ TITLE>  *
+   33
+    1    1 ALA  N      0.00000   0.00000   0.00000 AAA  1      0.00000
+    2    1 ALA  HT1   -0.34716  -0.98035  -0.00000 AAA  1      0.00000
+    3    1 ALA  HT2   -0.34716   0.49017  -0.84901 AAA  1      0.00000
+    4    1 ALA  HT3   -0.34716   0.49017   0.84901 AAA  1      0.00000
+    5    1 ALA  CA     1.45920   0.00000   0.00000 AAA  1      0.00000
+    6    1 ALA  HA     1.81245  -0.49652   0.89651 AAA  1      0.00000
+    7    1 ALA  CB     1.94870  -0.83356  -1.20665 AAA  1      0.00000
+    8    1 ALA  HB1    1.51374  -1.85447  -1.15533 AAA  1      0.00000
+    9    1 ALA  HB2    1.62795  -0.37311  -2.16656 AAA  1      0.00000
+   10    1 ALA  HB3    3.05570  -0.93210  -1.21396 AAA  1      0.00000
+   11    1 ALA  C      2.09595   1.40110   0.00000 AAA  1      0.00000
+   12    1 ALA  O      1.42548   2.43194  -0.00000 AAA  1      0.00000
+   13    2 ALA  N      3.45056   1.45787   0.00000 AAA  2      0.00000
+   14    2 ALA  HN     3.95353   0.59403   0.00000 AAA  2      0.00000
+   15    2 ALA  CA     4.27551   2.66404   0.00000 AAA  2      0.00000
+   16    2 ALA  HA     4.06510   3.23593  -0.89651 AAA  2      0.00000
+   17    2 ALA  CB     3.86383   3.53865   1.20665 AAA  2      0.00000
+   18    2 ALA  HB1    2.77560   3.75597   1.15533 AAA  2      0.00000
+   19    2 ALA  HB2    4.06281   3.01397   2.16656 AAA  2      0.00000
+   20    2 ALA  HB3    4.40743   4.50801   1.21396 AAA  2      0.00000
+   21    2 ALA  C      5.79146   2.39865   0.00000 AAA  2      0.00000
+   22    2 ALA  O      6.26383   1.26330   0.00000 AAA  2      0.00000
+   23    3 ALA  N      6.60304   3.48471   0.00000 AAA  3      0.00000
+   24    3 ALA  HN     6.17397   4.38753  -0.00000 AAA  3      0.00000
+   25    3 ALA  CA     8.06434   3.48471   0.00000 AAA  3      0.00000
+   26    3 ALA  HA     8.41760   2.98818   0.89651 AAA  3      0.00000
+   27    3 ALA  CB     8.55384   2.65115  -1.20665 AAA  3      0.00000
+   28    3 ALA  HB1    8.11888   1.63023  -1.15533 AAA  3      0.00000
+   29    3 ALA  HB2    8.23310   3.11160  -2.16656 AAA  3      0.00000
+   30    3 ALA  HB3    9.66084   2.55261  -1.21396 AAA  3      0.00000
+   31    3 ALA  C      8.70109   4.88581   0.00000 AAA  3      0.00000
+   32    3 ALA  OT1    7.93300   5.88463  -0.00000 AAA  3      0.00000
+   33    3 ALA  OT2    9.95866   4.96404   0.00000 AAA  3      0.00000
+  
+ CHARMM>     
+  
+ CHARMM>    hbuild
+
+      ***** LEVEL  4 WARNING FROM <GTHBUI> *****
+      ***** Zero selection specified
+      ******************************************
+      BOMLEV ( -1) IS NOT REACHED. WRNLEV IS  5
+
+  
+ CHARMM>     
+  
+ CHARMM>    open write unit 18 card name /home/vmohan3/new_script/toph19_5fs_20k_ui.gromacs.trj1.psf
+ VOPEN> Attempting to open::/home/vmohan3/new_script/toph19_5fs_20k_ui.gromacs.trj1.psf::
+ OPNLGU> Unit  18 cannot be opened as /HOME/VMOHAN3/NEW_SCRIPT/TOPH19_5FS_20K_UI.GROMACS.TRJ1.PSF                                                                                                                                                                                                     
+
+      ***** LEVEL  0 WARNING FROM <OPNLGU> *****
+      ***** "OPEN" not possible.
+      ******************************************
+      BOMLEV ( -1) IS NOT REACHED. WRNLEV IS  5
+
+  
+ CHARMM>    write psf xplor card unit 18
+ RDTITL> * PSF FILE
+ RDTITL> *
+  
+ CHARMM>     
+  
+ CHARMM>    ! Phi Psi Modifier
+ CHARMM>    ic edit
+  
+ EDITIC>      dihe AAA 1 N AAA 1 CA AAA 1 C AAA 2 N  -180.0
+               FOUND IN IC    6 AS POSITIVE
+  
+ EDITIC>      dihe AAA 1 C AAA 2 N AAA 2 CA AAA 2 C  140.0
+               FOUND IN IC   15 AS POSITIVE
+  
+ EDITIC>      dihe AAA 2 N AAA 2 CA AAA 2 C AAA 3 N  -40.0
+               FOUND IN IC   16 AS POSITIVE
+  
+ EDITIC>      dihe AAA 2 C AAA 3 N AAA 3 CA AAA 3 C  -30.0
+               FOUND IN IC   25 AS POSITIVE
+  
+ EDITIC>    end
+  
+ CHARMM>    ic build
+  
+ CHARMM>     
+  
+ CHARMM>    cons  dihe AAA 1 N AAA 1 CA AAA 1 C AAA 2 N force 500.0 min -180.0
+ No periodicity specified: Econs=K*(phi-phi0)**2 will be used to constraint.
+ NEW DIHEDRAL RESTRAINT ADDED
+    1:    1    AAA  N   /  1    AAA  CA  /  1    AAA  C   /  2    AAA  N   
+      FORCe=   500.00  MIN=  -180.00  PERIod=   0  WIDTh=     0.00
+  
+ CHARMM>    cons  dihe AAA 1 C AAA 2 N AAA 2 CA AAA 2 C force 500.0 min 140.0
+ No periodicity specified: Econs=K*(phi-phi0)**2 will be used to constraint.
+ NEW DIHEDRAL RESTRAINT ADDED
+    2:    1    AAA  C   /  2    AAA  N   /  2    AAA  CA  /  2    AAA  C   
+      FORCe=   500.00  MIN=   140.00  PERIod=   0  WIDTh=     0.00
+  
+ CHARMM>    cons  dihe AAA 2 N AAA 2 CA AAA 2 C AAA 3 N force 500.0 min -40.0
+ No periodicity specified: Econs=K*(phi-phi0)**2 will be used to constraint.
+ NEW DIHEDRAL RESTRAINT ADDED
+    3:    2    AAA  N   /  2    AAA  CA  /  2    AAA  C   /  3    AAA  N   
+      FORCe=   500.00  MIN=   -40.00  PERIod=   0  WIDTh=     0.00
+  
+ CHARMM>    cons  dihe AAA 2 C AAA 3 N AAA 3 CA AAA 3 C force 500.0 min -30.0
+ No periodicity specified: Econs=K*(phi-phi0)**2 will be used to constraint.
+ NEW DIHEDRAL RESTRAINT ADDED
+    4:    2    AAA  C   /  3    AAA  N   /  3    AAA  CA  /  3    AAA  C   
+      FORCe=   500.00  MIN=   -30.00  PERIod=   0  WIDTh=     0.00
+  
+ CHARMM>     
+  
+ CHARMM>     
+  
+ CHARMM>    ! cutoff options short
+ CHARMM>    ener atom switch -
+ CHARMM>         vdis vatom vswitch  -
+ CHARMM>        ctonnb 4.0 ctofnb 6.0 cutnb 8.0
+
+ NONBOND OPTION FLAGS: 
+     ELEC     VDW      ATOMs    CDIElec  SWITch   VATOm    VSWItch 
+     BYGRoup  NOEXtnd  NOEWald 
+ CUTNB  =  8.000 CTEXNB =999.000 CTONNB =  4.000 CTOFNB =  6.000
+ CGONNB =  0.000 CGOFNB = 10.000
+ WMIN   =  1.500 WRNMXD =  0.500 E14FAC =  1.000 EPS    =  1.000
+ NBXMOD =      5
+ There are        0 atom  pairs and        0 atom  exclusions.
+ There are        0 group pairs and        0 group exclusions.
+ <MAKINB> with mode   5 found     89 exclusions and     74 interactions(1-4)
+ <MAKGRP> found     19 group exclusions.
+ Generating nonbond list with Exclusion mode = 5
+ == PRIMARY == SPACE FOR      529 ATOM PAIRS AND        0 GROUP PAIRS
+
+ General atom nonbond list generation found:
+      370 ATOM PAIRS WERE FOUND FOR ATOM LIST
+       12 GROUP PAIRS REQUIRED ATOM SEARCHES
+
+ EPHI: WARNING. bent improper torsion angle is 
+
+far from minimum for;
+    IPHI=    3  with deltaPHI=-140.0000 MIN= -40.0000 ATOMS:   13   15   21   23
+ EPHI: WARNING. bent improper torsion angle is 
+
+far from minimum for;
+    IPHI=    4  with deltaPHI=-150.0000 MIN= -30.0000 ATOMS:   21   23   25   31
+ENER ENR:  Eval#     ENERgy      Delta-E         GRMS
+ENER INTERN:          BONDs       ANGLes       UREY-b    DIHEdrals    IMPRopers
+ENER CROSS:           CMAPs        PMF1D        PMF2D        PRIMO
+ENER EXTERN:        VDWaals         ELEC       HBONds          ASP         USER
+ENER CONSTR:       HARMonic    CDIHedral          CIC     RESDistance       NOE
+ ----------       ---------    ---------    ---------    ---------    ---------
+ENER>        0   6698.20372      0.00000    358.99129
+ENER INTERN>        2.12478      6.92492      0.16633      7.78718      0.00000
+ENER CROSS>         0.12679      0.00000      0.00000      0.00000
+ENER EXTERN>        4.01234     21.17076      0.00000      0.00000      0.00000
+ENER CONSTR>        0.00000   6655.89062      0.00000      0.00000      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+  
+ CHARMM>    scalar fbeta set 5.0 sele segid AAA end
+ SELRPN>     33 atoms have been selected out of     33
+  
+ CHARMM>     
+  
+ CHARMM>    GBorn P1 0.2163 P2 0.2564 P3 0.0144 P4 7.0038 P5 1.0 Lambda 0.8417 Epsilon 80.0
+ Generalized Born energy and force terms  will be used
+ The parameters are (P(6) = Lambda)
+P1 =     0.21630  P2 =     0.25640  P3 =     0.01440
+P4 =     7.00380  P5 =     1.00000  P6 =     0.84170
+ The solvent dielectric constant is eps =     80.00000
+ The maximum allowed GB radius, alpha =   1000000.00000
+  
+ CHARMM>     
+  
+ CHARMM>    mini sd nstep 500
+
+ NONBOND OPTION FLAGS: 
+     ELEC     VDW      ATOMs    CDIElec  SWITch   VATOm    VSWItch 
+     BYGRoup  NOEXtnd  NOEWald 
+ CUTNB  =  8.000 CTEXNB =999.000 CTONNB =  4.000 CTOFNB =  6.000
+ CGONNB =  0.000 CGOFNB = 10.000
+ WMIN   =  1.500 WRNMXD =  0.500 E14FAC =  1.000 EPS    =  1.000
+ NBXMOD =      5
+ There are      370 atom  pairs and      163 atom  exclusions.
+ There are        0 group pairs and       19 group exclusions.
+ Generating nonbond list with Exclusion mode = 5
+ == PRIMARY == SPACE FOR      529 ATOM PAIRS AND        0 GROUP PAIRS
+
+ General atom nonbond list generation found:
+      370 ATOM PAIRS WERE FOUND FOR ATOM LIST
+       12 GROUP PAIRS REQUIRED ATOM SEARCHES
+
+
+
+ STEEPD> An energy minimization has been requested.
+
+ NSTEP  =          500   NPRINT =           10
+ STEP   =    0.0200000   TOLFUN =    0.0000000
+ TOLGRD =    0.0000000   TOLSTP =    0.0000000
+
+ EPHI: WARNING. bent improper torsion angle is 
+
+far from minimum for;
+    IPHI=    3  with deltaPHI=-140.0000 MIN= -40.0000 ATOMS:   13   15   21   23
+ EPHI: WARNING. bent improper torsion angle is 
+
+far from minimum for;
+    IPHI=    4  with deltaPHI=-150.0000 MIN= -30.0000 ATOMS:   21   23   25   31
+MINI MIN: Cycle      ENERgy      Delta-E         GRMS    Step-size
+MINI INTERN:          BONDs       ANGLes       UREY-b    DIHEdrals    IMPRopers
+MINI CROSS:           CMAPs        PMF1D        PMF2D        PRIMO
+MINI EXTERN:        VDWaals         ELEC       HBONds          ASP         USER
+MINI CONSTR:       HARMonic    CDIHedral          CIC     RESDistance       NOE
+MINI PBEQ:             PBnp       PBelec        GBEnr         GSBP
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>        0   6555.25740    142.94632    358.88843      0.02000
+MINI INTERN>        2.12478      6.92492      0.16633      7.78718      0.00000
+MINI CROSS>         0.12679      0.00000      0.00000      0.00000
+MINI EXTERN>        4.01234     21.17076      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000   6655.89062      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -142.94632      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+ EPHI: WARNING. bent improper torsion angle is 
+
+far from minimum for;
+    IPHI=    3  with deltaPHI=-138.6607 MIN= -40.0000 ATOMS:   13   15   21   23
+ EPHI: WARNING. bent improper torsion angle is 
+
+far from minimum for;
+    IPHI=    4  with deltaPHI=-143.9454 MIN= -30.0000 ATOMS:   21   23   25   31
+ EPHI: WARNING. bent improper torsion angle is 
+
+far from minimum for;
+    IPHI=    3  with deltaPHI=-136.7242 MIN= -40.0000 ATOMS:   13   15   21   23
+ EPHI: WARNING. bent improper torsion angle is 
+
+far from minimum for;
+    IPHI=    4  with deltaPHI=-136.8840 MIN= -30.0000 ATOMS:   21   23   25   31
+ EPHI: WARNING. bent improper torsion angle is 
+
+far from minimum for;
+    IPHI=    3  with deltaPHI=-133.9505 MIN= -40.0000 ATOMS:   13   15   21   23
+ EPHI: WARNING. bent improper torsion angle is 
+
+far from minimum for;
+    IPHI=    4  with deltaPHI=-128.5261 MIN= -30.0000 ATOMS:   21   23   25   31
+ EPHI: WARNING. bent improper torsion angle is 
+
+far from minimum for;
+    IPHI=    3  with deltaPHI=-130.0107 MIN= -40.0000 ATOMS:   13   15   21   23
+ EPHI: WARNING. bent improper torsion angle is 
+
+far from minimum for;
+    IPHI=    4  with deltaPHI=-118.4198 MIN= -30.0000 ATOMS:   21   23   25   31
+ EPHI: WARNING. bent improper torsion angle is 
+
+far from minimum for;
+    IPHI=    3  with deltaPHI=-124.4678 MIN= -40.0000 ATOMS:   13   15   21   23
+ EPHI: WARNING. bent improper torsion angle is 
+
+far from minimum for;
+    IPHI=    4  with deltaPHI=-105.8592 MIN= -30.0000 ATOMS:   21   23   25   31
+ EPHI: WARNING. bent improper torsion angle is 
+
+far from minimum for;
+    IPHI=    3  with deltaPHI=-116.7651 MIN= -40.0000 ATOMS:   13   15   21   23
+ EPHI: WARNING. bent improper torsion angle is 
+
+far from minimum for;
+    IPHI=    4  with deltaPHI= -89.6977 MIN= -30.0000 ATOMS:   21   23   25   31
+ EPHI: WARNING. bent improper torsion angle is 
+
+far from minimum for;
+    IPHI=    3  with deltaPHI=-106.0251 MIN= -40.0000 ATOMS:   13   15   21   23
+ EPHI: WARNING. bent improper torsion angle is 
+
+far from minimum for;
+    IPHI=    3  with deltaPHI= -88.8939 MIN= -40.0000 ATOMS:   13   15   21   23
+ EPHI: WARNING. bent improper torsion angle is 
+
+far from minimum for;
+    IPHI=    2  with deltaPHI= -95.8476 MIN= 140.0000 ATOMS:   11   13   15   21
+MINI>       10   2636.78204   3918.47536   4401.98523      0.05160
+MINI INTERN>      437.64832    491.40024     81.71736     21.88291    163.46359
+MINI CROSS>        -1.81552      0.00000      0.00000      0.00000
+MINI EXTERN>       11.45460      7.33305      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000   1565.21528      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -141.51779      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+ UPDECI: Nonbond update at step        11
+ Generating nonbond list with Exclusion mode = 5
+ == PRIMARY == SPACE FOR      529 ATOM PAIRS AND        0 GROUP PAIRS
+
+ General atom nonbond list generation found:
+      370 ATOM PAIRS WERE FOUND FOR ATOM LIST
+       11 GROUP PAIRS REQUIRED ATOM SEARCHES
+
+ EPHI: WARNING. bent improper torsion angle is 
+
+far from minimum for;
+    IPHI=    2  with deltaPHI= 109.5324 MIN=   0.0000 ATOMS:   13   11   15   14
+ EPHI: WARNING. bent improper torsion angle is 
+
+far from minimum for;
+    IPHI=    2  with deltaPHI= 102.2996 MIN=   0.0000 ATOMS:   13   11   15   14
+ EPHI: WARNING. bent improper torsion angle is 
+
+far from minimum for;
+    IPHI=    2  with deltaPHI= 102.7675 MIN=   0.0000 ATOMS:   13   11   15   14
+ EPHI: WARNING. bent improper torsion angle is 
+
+far from minimum for;
+    IPHI=    2  with deltaPHI=  88.4362 MIN=   0.0000 ATOMS:   13   11   15   14
+ EPHI: WARNING. bent improper torsion angle is 
+
+far from minimum for;
+    IPHI=    2  with deltaPHI=  92.1842 MIN=   0.0000 ATOMS:   13   11   15   14
+ EPHI: WARNING. bent improper torsion angle is 
+
+far from minimum for;
+    IPHI=    2  with deltaPHI=  89.1421 MIN=   0.0000 ATOMS:   13   11   15   14
+ EPHI: WARNING. bent improper torsion angle is 
+
+far from minimum for;
+    IPHI=    2  with deltaPHI=  86.8758 MIN=   0.0000 ATOMS:   13   11   15   14
+ EPHI: WARNING. bent improper torsion angle is 
+
+far from minimum for;
+    IPHI=    2  with deltaPHI=  88.9423 MIN=   0.0000 ATOMS:   13   11   15   14
+MINI>       20    628.62465   2008.15740    102.65062      0.00401
+MINI INTERN>      138.68812    385.22201     52.48321     26.79930    116.57231
+MINI CROSS>        -1.45411      0.00000      0.00000      0.00000
+MINI EXTERN>       10.08385     16.46795      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000     32.86960      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -149.10759      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+ EPHI: WARNING. bent improper torsion angle is 
+
+far from minimum for;
+    IPHI=    2  with deltaPHI=  88.1339 MIN=   0.0000 ATOMS:   13   11   15   14
+ EPHI: WARNING. bent improper torsion angle is 
+
+far from minimum for;
+    IPHI=    2  with deltaPHI=  87.4880 MIN=   0.0000 ATOMS:   13   11   15   14
+ EPHI: WARNING. bent improper torsion angle is 
+
+far from minimum for;
+    IPHI=    2  with deltaPHI=  86.9263 MIN=   0.0000 ATOMS:   13   11   15   14
+ EPHI: WARNING. bent improper torsion angle is 
+
+far from minimum for;
+    IPHI=    2  with deltaPHI=  85.1266 MIN=   0.0000 ATOMS:   13   11   15   14
+ EPHI: WARNING. bent improper torsion angle is 
+
+far from minimum for;
+    IPHI=    2  with deltaPHI=  86.6257 MIN=   0.0000 ATOMS:   13   11   15   14
+ EPHI: WARNING. bent improper torsion angle is 
+
+far from minimum for;
+    IPHI=    2  with deltaPHI=  85.4215 MIN=   0.0000 ATOMS:   13   11   15   14
+ EPHI: WARNING. bent improper torsion angle is 
+
+far from minimum for;
+    IPHI=    2  with deltaPHI=  87.7239 MIN=   0.0000 ATOMS:   13   11   15   14
+ EPHI: WARNING. bent improper torsion angle is 
+
+far from minimum for;
+    IPHI=    2  with deltaPHI=  86.5563 MIN=   0.0000 ATOMS:   13   11   15   14
+ EPHI: WARNING. bent improper torsion angle is 
+
+far from minimum for;
+    IPHI=    2  with deltaPHI=  85.1712 MIN=   0.0000 ATOMS:   13   11   15   14
+ EPHI: WARNING. bent improper torsion angle is 
+
+far from minimum for;
+    IPHI=    2  with deltaPHI=  87.1590 MIN=   0.0000 ATOMS:   13   11   15   14
+MINI>       30    567.72611     60.89854    239.47604      0.00180
+MINI INTERN>      106.30667    388.65982     45.48367     27.00127    106.07098
+MINI CROSS>        -2.54972      0.00000      0.00000      0.00000
+MINI EXTERN>       10.11755     17.85692      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000     19.02645      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -150.24750      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+ EPHI: WARNING. bent improper torsion angle is 
+
+far from minimum for;
+    IPHI=    2  with deltaPHI=  86.2073 MIN=   0.0000 ATOMS:   13   11   15   14
+ EPHI: WARNING. bent improper torsion angle is 
+
+far from minimum for;
+    IPHI=    2  with deltaPHI=  85.2321 MIN=   0.0000 ATOMS:   13   11   15   14
+ EPHI: WARNING. bent improper torsion angle is 
+
+far from minimum for;
+    IPHI=    2  with deltaPHI=  86.5399 MIN=   0.0000 ATOMS:   13   11   15   14
+ EPHI: WARNING. bent improper torsion angle is 
+
+far from minimum for;
+    IPHI=    2  with deltaPHI=  85.8130 MIN=   0.0000 ATOMS:   13   11   15   14
+ EPHI: WARNING. bent improper torsion angle is 
+
+far from minimum for;
+    IPHI=    2  with deltaPHI=  85.0348 MIN=   0.0000 ATOMS:   13   11   15   14
+ EPHI: WARNING. bent improper torsion angle is 
+
+far from minimum for;
+    IPHI=    2  with deltaPHI=  85.9828 MIN=   0.0000 ATOMS:   13   11   15   14
+ EPHI: WARNING. bent improper torsion angle is 
+
+far from minimum for;
+    IPHI=    2  with deltaPHI=  85.4289 MIN=   0.0000 ATOMS:   13   11   15   14
+ EPHI: WARNING. bent improper torsion angle is 
+
+far from minimum for;
+    IPHI=    2  with deltaPHI=  85.0370 MIN=   0.0000 ATOMS:   13   11   15   14
+ EPHI: WARNING. bent improper torsion angle is 
+
+far from minimum for;
+    IPHI=    2  with deltaPHI=  85.4503 MIN=   0.0000 ATOMS:   13   11   15   14
+ EPHI: WARNING. bent improper torsion angle is 
+
+far from minimum for;
+    IPHI=    2  with deltaPHI=  84.4781 MIN=   0.0000 ATOMS:   13   11   15   14
+MINI>       40    540.69614     27.02997    141.64620      0.00080
+MINI INTERN>       94.41848    384.06879     43.00608     26.91057     99.01201
+MINI CROSS>        -1.28539      0.00000      0.00000      0.00000
+MINI EXTERN>       10.17719     18.31673      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000     16.62606      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -150.55439      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+ EPHI: WARNING. bent improper torsion angle is 
+
+far from minimum for;
+    IPHI=    2  with deltaPHI=  84.9573 MIN=   0.0000 ATOMS:   13   11   15   14
+ EPHI: WARNING. bent improper torsion angle is 
+
+far from minimum for;
+    IPHI=    2  with deltaPHI=  85.0167 MIN=   0.0000 ATOMS:   13   11   15   14
+ EPHI: WARNING. bent improper torsion angle is 
+
+far from minimum for;
+    IPHI=    2  with deltaPHI=  84.4113 MIN=   0.0000 ATOMS:   13   11   15   14
+ EPHI: WARNING. bent improper torsion angle is 
+
+far from minimum for;
+    IPHI=    2  with deltaPHI=  85.2131 MIN=   0.0000 ATOMS:   13   11   15   14
+ EPHI: WARNING. bent improper torsion angle is 
+
+far from minimum for;
+    IPHI=    2  with deltaPHI=  84.7062 MIN=   0.0000 ATOMS:   13   11   15   14
+ EPHI: WARNING. bent improper torsion angle is 
+
+far from minimum for;
+    IPHI=    2  with deltaPHI=  84.7587 MIN=   0.0000 ATOMS:   13   11   15   14
+ EPHI: WARNING. bent improper torsion angle is 
+
+far from minimum for;
+    IPHI=    2  with deltaPHI=  84.4567 MIN=   0.0000 ATOMS:   13   11   15   14
+ EPHI: WARNING. bent improper torsion angle is 
+
+far from minimum for;
+    IPHI=    2  with deltaPHI=  84.5814 MIN=   0.0000 ATOMS:   13   11   15   14
+MINI>       50    526.35903     14.33710     62.22780      0.00036
+MINI INTERN>       88.97111    385.48687     41.38547     26.91628     96.95391
+MINI CROSS>        -1.93540      0.00000      0.00000      0.00000
+MINI EXTERN>       10.22567     18.55759      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000     10.54757      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -150.75003      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+ EPHI: WARNING. bent improper torsion angle is 
+
+far from minimum for;
+    IPHI=    2  with deltaPHI=  84.7057 MIN=   0.0000 ATOMS:   13   11   15   14
+ EPHI: WARNING. bent improper torsion angle is 
+
+far from minimum for;
+    IPHI=    2  with deltaPHI=  84.3043 MIN=   0.0000 ATOMS:   13   11   15   14
+ EPHI: WARNING. bent improper torsion angle is 
+
+far from minimum for;
+    IPHI=    2  with deltaPHI=  84.3925 MIN=   0.0000 ATOMS:   13   11   15   14
+ EPHI: WARNING. bent improper torsion angle is 
+
+far from minimum for;
+    IPHI=    2  with deltaPHI=  84.3393 MIN=   0.0000 ATOMS:   13   11   15   14
+MINI>       60    519.20413      7.15491    112.75939      0.00039
+MINI INTERN>       84.97148    385.61950     40.25065     26.89774     95.05418
+MINI CROSS>        -2.08338      0.00000      0.00000      0.00000
+MINI EXTERN>       10.26633     18.72744      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000     10.38194      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -150.88174      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+ EPHI: WARNING. bent improper torsion angle is 
+
+far from minimum for;
+    IPHI=    2  with deltaPHI=  84.4646 MIN=   0.0000 ATOMS:   13   11   15   14
+MINI>       70    513.69512      5.50901    147.41648      0.00042
+MINI INTERN>       81.92522    385.58830     39.37225     26.87690     93.51456
+MINI CROSS>        -2.15594      0.00000      0.00000      0.00000
+MINI EXTERN>       10.30260     18.85555      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000     10.39698      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -150.98130      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>       80    507.56127      6.13385     38.84783      0.00019
+MINI INTERN>       79.30714    384.76431     38.68285     26.83296     91.78729
+MINI CROSS>        -1.81884      0.00000      0.00000      0.00000
+MINI EXTERN>       10.33155     18.96163      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000      9.76498      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -151.05260      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>       90    503.42781      4.13346     51.46196      0.00020
+MINI INTERN>       77.17968    384.59173     38.05300     26.80845     90.57167
+MINI CROSS>        -1.78485      0.00000      0.00000      0.00000
+MINI EXTERN>       10.35988     19.05055      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000      9.71620      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -151.11851      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>      100    500.49042      2.93739    123.90396      0.00022
+MINI INTERN>       75.31495    384.24925     37.50873     26.77862     89.39969
+MINI CROSS>        -1.63654      0.00000      0.00000      0.00000
+MINI EXTERN>       10.38559     19.12778      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000     10.53585      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -151.17349      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>      110    497.77711      2.71330    132.22783      0.00023
+MINI INTERN>       73.98646    384.18256     37.09485     26.76213     88.63188
+MINI CROSS>        -1.64002      0.00000      0.00000      0.00000
+MINI EXTERN>       10.40645     19.18356      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000     10.38518      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -151.21593      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>      120    494.66937      3.10774     35.29460      0.00010
+MINI INTERN>       73.01595    384.51126     36.74807     26.76336     88.24208
+MINI CROSS>        -1.90642      0.00000      0.00000      0.00000
+MINI EXTERN>       10.42574     19.22558      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000      8.89765      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -151.25390      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>      130    492.34787      2.32150     78.15689      0.00011
+MINI INTERN>       71.86597    384.56600     36.36845     26.75262     87.61147
+MINI CROSS>        -2.00764      0.00000      0.00000      0.00000
+MINI EXTERN>       10.44604     19.27425      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000      8.76311      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -151.29238      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>      140    490.39680      1.95107     92.27655      0.00012
+MINI INTERN>       70.91520    384.51183     36.06103     26.73976     87.04009
+MINI CROSS>        -2.03133      0.00000      0.00000      0.00000
+MINI EXTERN>       10.46303     19.31418      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000      8.70596      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -151.32296      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>      150    488.63003      1.76677    104.32956      0.00013
+MINI INTERN>       70.06116    384.45213     35.78288     26.72746     86.51691
+MINI CROSS>        -2.04935      0.00000      0.00000      0.00000
+MINI EXTERN>       10.47877     19.35008      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000      8.66040      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -151.35041      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>      160    487.11687      1.51316    124.78341      0.00014
+MINI INTERN>       69.30865    384.41039     35.53401     26.71679     86.05805
+MINI CROSS>        -2.07743      0.00000      0.00000      0.00000
+MINI EXTERN>       10.49321     19.38180      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000      8.66637      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -151.37498      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>      170    485.13454      1.98234     41.72791      0.00006
+MINI INTERN>       68.48157    384.06811     35.28941     26.69241     85.40317
+MINI CROSS>        -1.87620      0.00000      0.00000      0.00000
+MINI EXTERN>       10.50692     19.41591      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000      8.55002      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -151.39679      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>      180    483.79554      1.33900     34.31666      0.00007
+MINI INTERN>       67.88488    384.03164     35.08815     26.68328     85.03360
+MINI CROSS>        -1.89999      0.00000      0.00000      0.00000
+MINI EXTERN>       10.51929     19.44114      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000      8.43022      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -151.41668      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>      190    482.46370      1.33184     43.84873      0.00007
+MINI INTERN>       67.25703    383.94066     34.88053     26.67117     84.61263
+MINI CROSS>        -1.88120      0.00000      0.00000      0.00000
+MINI EXTERN>       10.53180     19.46764      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000      8.41986      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -151.43642      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>      200    481.34170      1.12200     86.89886      0.00008
+MINI INTERN>       66.66186    383.80495     34.68711     26.65722     84.18731
+MINI CROSS>        -1.82000      0.00000      0.00000      0.00000
+MINI EXTERN>       10.54358     19.49269      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000      8.58142      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -151.45445      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>      210    480.24332      1.09838     97.66732      0.00008
+MINI INTERN>       66.14617    383.73573     34.51300     26.64713     83.84027
+MINI CROSS>        -1.81139      0.00000      0.00000      0.00000
+MINI EXTERN>       10.55448     19.51457      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000      8.57437      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -151.47102      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>      220    479.03098      1.21234     34.03525      0.00004
+MINI INTERN>       65.73599    383.82738     34.35782     26.64594     83.63672
+MINI CROSS>        -1.94758      0.00000      0.00000      0.00000
+MINI EXTERN>       10.56485     19.53234      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000      8.15845      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -151.48093      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>      230    478.32994      0.70104    129.46046      0.00010
+MINI INTERN>       65.22077    383.59199     34.19902     26.62775     83.20458
+MINI CROSS>        -1.78259      0.00000      0.00000      0.00000
+MINI EXTERN>       10.57462     19.55390      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000      8.63462      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -151.49473      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>      240    477.15050      1.17944     31.99110      0.00004
+MINI INTERN>       64.89673    383.71214     34.06993     26.62919     83.06535
+MINI CROSS>        -1.94618      0.00000      0.00000      0.00000
+MINI EXTERN>       10.58354     19.56809      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000      8.08004      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -151.50833      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>      250    476.21613      0.93437     64.46067      0.00005
+MINI INTERN>       64.47568    383.70665     33.91863     26.62323     82.80197
+MINI CROSS>        -2.00021      0.00000      0.00000      0.00000
+MINI EXTERN>       10.59358     19.58622      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000      8.03340      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -151.52303      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>      260    475.35649      0.85963     48.51225      0.00005
+MINI INTERN>       64.10478    383.63209     33.79180     26.61452     82.53536
+MINI CROSS>        -1.98109      0.00000      0.00000      0.00000
+MINI EXTERN>       10.60205     19.60204      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000      7.98988      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -151.53494      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>      270    474.62996      0.72653     86.17301      0.00005
+MINI INTERN>       63.76407    383.62373     33.66832     26.60948     82.31892
+MINI CROSS>        -2.02616      0.00000      0.00000      0.00000
+MINI EXTERN>       10.61044     19.61676      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000      7.99134      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -151.54693      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>      280    473.90029      0.72967     94.72288      0.00006
+MINI INTERN>       63.43865    383.58086     33.55346     26.60289     82.09409
+MINI CROSS>        -2.03539      0.00000      0.00000      0.00000
+MINI EXTERN>       10.61826     19.63076      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000      7.97456      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -151.55784      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>      290    473.07463      0.82567     32.49567      0.00003
+MINI INTERN>       63.10010    383.43343     33.44436     26.59057     81.80677
+MINI CROSS>        -1.93390      0.00000      0.00000      0.00000
+MINI EXTERN>       10.62544     19.64515      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000      7.93006      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -151.56736      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>      300    472.57262      0.50201    121.04483      0.00007
+MINI INTERN>       62.83742    383.50523     33.33917     26.59083     81.67919
+MINI CROSS>        -2.06140      0.00000      0.00000      0.00000
+MINI EXTERN>       10.63310     19.65671      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000      7.97066      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -151.57828      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>      310    471.70860      0.86401     43.45167      0.00003
+MINI INTERN>       62.49945    383.32337     33.23289     26.57642     81.37201
+MINI CROSS>        -1.91923      0.00000      0.00000      0.00000
+MINI EXTERN>       10.64005     19.67109      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000      7.89974      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -151.58718      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>      320    471.10934      0.59926     31.53926      0.00003
+MINI INTERN>       62.25476    383.30063     33.14363     26.57185     81.20638
+MINI CROSS>        -1.94161      0.00000      0.00000      0.00000
+MINI EXTERN>       10.64644     19.68172      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000      7.84136      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -151.59582      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>      330    470.48798      0.62135     40.72441      0.00003
+MINI INTERN>       61.97979    383.24188     33.04667     26.56481     81.00101
+MINI CROSS>        -1.92702      0.00000      0.00000      0.00000
+MINI EXTERN>       10.65319     19.69364      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000      7.83882      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -151.60480      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>      340    469.93684      0.55114     79.44332      0.00004
+MINI INTERN>       61.70732    383.16197     32.95245     26.55654     80.78583
+MINI CROSS>        -1.88617      0.00000      0.00000      0.00000
+MINI EXTERN>       10.65973     19.70545      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000      7.90707      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -151.61335      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>      350    469.39131      0.54553     90.85966      0.00004
+MINI INTERN>       61.46412    383.11236     32.86554     26.55037     80.60512
+MINI CROSS>        -1.87752      0.00000      0.00000      0.00000
+MINI EXTERN>       10.66594     19.71604      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000      7.91083      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -151.62149      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>      360    468.88239      0.50892     96.05791      0.00004
+MINI INTERN>       61.24400    383.07158     32.78619     26.54498     80.44283
+MINI CROSS>        -1.87511      0.00000      0.00000      0.00000
+MINI EXTERN>       10.67162     19.72566      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000      7.89955      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -151.62893      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>      370    468.26664      0.61575     30.95156      0.00002
+MINI INTERN>       61.05084    383.10739     32.70852     26.54452     80.33797
+MINI CROSS>        -1.96770      0.00000      0.00000      0.00000
+MINI EXTERN>       10.67753     19.73423      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000      7.71024      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -151.63691      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>      380    467.90731      0.35932    119.78211      0.00005
+MINI INTERN>       60.80740    382.97934     32.62897     26.53359     80.11470
+MINI CROSS>        -1.85847      0.00000      0.00000      0.00000
+MINI EXTERN>       10.68302     19.74477      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000      7.91764      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -151.64364      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>      390    467.31763      0.58969     30.48545      0.00002
+MINI INTERN>       60.65158    383.03234     32.56334     26.53473     80.04207
+MINI CROSS>        -1.96894      0.00000      0.00000      0.00000
+MINI EXTERN>       10.68813     19.75175      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000      7.67319      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -151.65058      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>      400    466.83740      0.48022     30.27940      0.00002
+MINI INTERN>       60.45068    382.99352     32.48998     26.52972     79.89241
+MINI CROSS>        -1.96965      0.00000      0.00000      0.00000
+MINI EXTERN>       10.69355     19.76059      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000      7.65412      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -151.65751      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>      410    466.38116      0.45624     66.95441      0.00003
+MINI INTERN>       60.25571    382.98661     32.41524     26.52676     79.76276
+MINI CROSS>        -2.01262      0.00000      0.00000      0.00000
+MINI EXTERN>       10.69918     19.76923      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000      7.64312      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -151.66483      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>      420    465.92747      0.45369     46.20750      0.00003
+MINI INTERN>       60.07211    382.93520     32.34940     26.52120     79.61721
+MINI CROSS>        -1.99381      0.00000      0.00000      0.00000
+MINI EXTERN>       10.70406     19.77731      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000      7.61571      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -151.67092      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>      430    465.54624      0.38123     81.74115      0.00003
+MINI INTERN>       59.90341    382.92379     32.28492     26.51831     79.50170
+MINI CROSS>        -2.02587      0.00000      0.00000      0.00000
+MINI EXTERN>       10.70895     19.78481      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000      7.62342      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -151.67720      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>      440    465.15708      0.38916    100.27978      0.00003
+MINI INTERN>       59.73359    382.89854     32.22119     26.51457     79.37852
+MINI CROSS>        -2.04092      0.00000      0.00000      0.00000
+MINI EXTERN>       10.71381     19.79234      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000      7.62876      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -151.68333      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>      450    464.77678      0.38030     99.24351      0.00003
+MINI INTERN>       59.57757    382.86469     32.16369     26.51045     79.25911
+MINI CROSS>        -2.04012      0.00000      0.00000      0.00000
+MINI EXTERN>       10.71814     19.79926      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000      7.61274      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -151.68874      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>      460    464.42454      0.35224    111.07788      0.00004
+MINI INTERN>       59.42603    382.83827     32.10696     26.50685     79.14647
+MINI CROSS>        -2.04917      0.00000      0.00000      0.00000
+MINI EXTERN>       10.72247     19.80600      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000      7.61480      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -151.69415      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>      470    464.06370      0.36084    123.63196      0.00004
+MINI INTERN>       59.27030    382.81043     32.04855     26.50312     79.03029
+MINI CROSS>        -2.05841      0.00000      0.00000      0.00000
+MINI EXTERN>       10.72695     19.81293      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000      7.61926      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -151.69972      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>      480    463.61298      0.45071     29.84867      0.00002
+MINI INTERN>       59.11406    382.71282     31.99742     26.49472     78.87585
+MINI CROSS>        -1.96445      0.00000      0.00000      0.00000
+MINI EXTERN>       10.73059     19.81981      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000      7.53610      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -151.70393      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>      490    463.24890      0.36409     30.91634      0.00002
+MINI INTERN>       58.96463    382.67898     31.94182     26.49063     78.76018
+MINI CROSS>        -1.96299      0.00000      0.00000      0.00000
+MINI EXTERN>       10.73486     19.82648      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000      7.52350      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -151.70919      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>      500    462.90501      0.34388     38.78942      0.00002
+MINI INTERN>       58.82000    382.64105     31.88849     26.48628     78.64484
+MINI CROSS>        -1.95340      0.00000      0.00000      0.00000
+MINI EXTERN>       10.73892     19.83294      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000      7.52003      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -151.71415      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+
+ STEEPD> Minimization exiting with number of steps limit (       500) exceeded.
+
+STPD MIN: Cycle      ENERgy      Delta-E         GRMS    Step-size
+STPD INTERN:          BONDs       ANGLes       UREY-b    DIHEdrals    IMPRopers
+STPD CROSS:           CMAPs        PMF1D        PMF2D        PRIMO
+STPD EXTERN:        VDWaals         ELEC       HBONds          ASP         USER
+STPD CONSTR:       HARMonic    CDIHedral          CIC     RESDistance       NOE
+STPD PBEQ:             PBnp       PBelec        GBEnr         GSBP
+ ----------       ---------    ---------    ---------    ---------    ---------
+STPD>      500    462.90501      0.34388     38.78942      0.00002
+STPD INTERN>       58.82000    382.64105     31.88849     26.48628     78.64484
+STPD CROSS>        -1.95340      0.00000      0.00000      0.00000
+STPD EXTERN>       10.73892     19.83294      0.00000      0.00000      0.00000
+STPD CONSTR>        0.00000      7.52003      0.00000      0.00000      0.00000
+STPD PBEQ>          0.00000      0.00000   -151.71415      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+  
+ CHARMM>    mini abnr nstep 500
+
+ NONBOND OPTION FLAGS: 
+     ELEC     VDW      ATOMs    CDIElec  SWITch   VATOm    VSWItch 
+     BYGRoup  NOEXtnd  NOEWald 
+ CUTNB  =  8.000 CTEXNB =999.000 CTONNB =  4.000 CTOFNB =  6.000
+ CGONNB =  0.000 CGOFNB = 10.000
+ WMIN   =  1.500 WRNMXD =  0.500 E14FAC =  1.000 EPS    =  1.000
+ NBXMOD =      5
+ There are      370 atom  pairs and      163 atom  exclusions.
+ There are        0 group pairs and       19 group exclusions.
+ Generating nonbond list with Exclusion mode = 5
+ == PRIMARY == SPACE FOR      529 ATOM PAIRS AND        0 GROUP PAIRS
+
+ General atom nonbond list generation found:
+      370 ATOM PAIRS WERE FOUND FOR ATOM LIST
+       11 GROUP PAIRS REQUIRED ATOM SEARCHES
+
+
+
+ ABNER> An energy minimization has been requested.
+
+ EIGRNG =    0.0005000   MINDIM =            5
+ NPRINT =           10   NSTEP  =          500
+ PSTRCT =    0.0000000   SDSTP  =    0.0200000
+ STPLIM =    1.0000000   STRICT =    0.1000000
+ TOLFUN =    0.0000000   TOLGRD =    0.0000000
+ TOLITR =          100   TOLSTP =    0.0000000
+ FMEM   =    0.0000000
+MINI MIN: Cycle      ENERgy      Delta-E         GRMS    Step-size
+MINI INTERN:          BONDs       ANGLes       UREY-b    DIHEdrals    IMPRopers
+MINI CROSS:           CMAPs        PMF1D        PMF2D        PRIMO
+MINI EXTERN:        VDWaals         ELEC       HBONds          ASP         USER
+MINI CONSTR:       HARMonic    CDIHedral          CIC     RESDistance       NOE
+MINI PBEQ:             PBnp       PBelec        GBEnr         GSBP
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>        0    462.90501      0.34388     38.78942      0.00000
+MINI INTERN>       58.82000    382.64105     31.88849     26.48628     78.64484
+MINI CROSS>        -1.95340      0.00000      0.00000      0.00000
+MINI EXTERN>       10.73892     19.83294      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000      7.52003      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -151.71415      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>       10    462.98569     -0.08068    149.36737      0.00041
+MINI INTERN>       58.81282    382.71954     31.87709     26.49154     78.68236
+MINI CROSS>        -2.07584      0.00000      0.00000      0.00000
+MINI EXTERN>       10.74012     19.83338      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000      7.62068      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -151.71600      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>       20    463.53871     -0.55302    401.95137      0.00097
+MINI INTERN>       58.56418    381.92082     31.78770     26.45191     78.55037
+MINI CROSS>        -1.61433      0.00000      0.00000      0.00000
+MINI EXTERN>       10.78593     19.83675      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000      9.00521      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -151.74983      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+ EPHI: WARNING. bent improper torsion angle is 
+
+far from minimum for;
+    IPHI=    2  with deltaPHI=-167.4632 MIN= 140.0000 ATOMS:   11   13   15   21
+ EPHI: WARNING. bent improper torsion angle is 
+
+far from minimum for;
+    IPHI=    3  with deltaPHI= 174.1670 MIN= -40.0000 ATOMS:   13   15   21   23
+MINI>       30    455.51129      8.02742    754.37756      0.00095
+MINI INTERN>       54.99044    381.77386     30.38418     26.39114     75.86857
+MINI CROSS>        -2.39294      0.00000      0.00000      0.00000
+MINI EXTERN>       10.88327     20.00730      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000      9.48369      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -151.87821      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+ EPHI: WARNING. bent improper torsion angle is 
+
+far from minimum for;
+    IPHI=    2  with deltaPHI=-177.0703 MIN= 140.0000 ATOMS:   11   13   15   21
+ EPHI: WARNING. bent improper torsion angle is 
+
+far from minimum for;
+    IPHI=    3  with deltaPHI= 176.4598 MIN= -40.0000 ATOMS:   13   15   21   23
+ EPHI: WARNING. bent improper torsion angle is 
+
+far from minimum for;
+    IPHI=    2  with deltaPHI=-176.5996 MIN= 140.0000 ATOMS:   11   13   15   21
+ EPHI: WARNING. bent improper torsion angle is 
+
+far from minimum for;
+    IPHI=    3  with deltaPHI= 177.5991 MIN= -40.0000 ATOMS:   13   15   21   23
+ EPHI: WARNING. bent improper torsion angle is 
+
+far from minimum for;
+    IPHI=    2  with deltaPHI=-179.1957 MIN= 140.0000 ATOMS:   11   13   15   21
+ EPHI: WARNING. bent improper torsion angle is 
+
+far from minimum for;
+    IPHI=    3  with deltaPHI= 176.7311 MIN= -40.0000 ATOMS:   13   15   21   23
+ EPHI: WARNING. bent improper torsion angle is 
+
+far from minimum for;
+    IPHI=    2  with deltaPHI=-173.9587 MIN= 140.0000 ATOMS:   11   13   15   21
+ EPHI: WARNING. bent improper torsion angle is 
+
+far from minimum for;
+    IPHI=    3  with deltaPHI= 176.5131 MIN= -40.0000 ATOMS:   13   15   21   23
+ EPHI: WARNING. bent improper torsion angle is 
+
+far from minimum for;
+    IPHI=    2  with deltaPHI=  84.6860 MIN=   0.0000 ATOMS:   13   11   15   14
+MINI>       40    429.23399     26.27731    121.67502      0.00047
+MINI INTERN>       47.68370    374.41042     26.91611     25.85759     69.02418
+MINI CROSS>        -2.02394      0.00000      0.00000      0.00000
+MINI EXTERN>       11.51946     20.31319      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000      7.84658      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -152.31331      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+ EPHI: WARNING. bent improper torsion angle is 
+
+far from minimum for;
+    IPHI=    2  with deltaPHI=  87.5716 MIN=   0.0000 ATOMS:   13   11   15   14
+ EPHI: WARNING. bent improper torsion angle is 
+
+far from minimum for;
+    IPHI=    2  with deltaPHI=  86.9517 MIN=   0.0000 ATOMS:   13   11   15   14
+ EPHI: WARNING. bent improper torsion angle is 
+
+far from minimum for;
+    IPHI=    2  with deltaPHI=  86.8954 MIN=   0.0000 ATOMS:   13   11   15   14
+ EPHI: WARNING. bent improper torsion angle is 
+
+far from minimum for;
+    IPHI=    2  with deltaPHI=  87.2582 MIN=   0.0000 ATOMS:   13   11   15   14
+ EPHI: WARNING. bent improper torsion angle is 
+
+far from minimum for;
+    IPHI=    2  with deltaPHI=  87.3596 MIN=   0.0000 ATOMS:   13   11   15   14
+ EPHI: WARNING. bent improper torsion angle is 
+
+far from minimum for;
+    IPHI=    2  with deltaPHI=  87.2233 MIN=   0.0000 ATOMS:   13   11   15   14
+ EPHI: WARNING. bent improper torsion angle is 
+
+far from minimum for;
+    IPHI=    2  with deltaPHI=  86.3884 MIN=   0.0000 ATOMS:   13   11   15   14
+MINI>       50    367.51578     61.71821    135.08541      0.00391
+MINI INTERN>       41.61180    349.50787     14.01238     24.09963     45.51393
+MINI CROSS>        -2.21023      0.00000      0.00000      0.00000
+MINI EXTERN>       15.42982     22.28436      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000     11.88847      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -154.62226      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+ EPHI: WARNING. bent improper torsion angle is 
+
+far from minimum for;
+    IPHI=    2  with deltaPHI=-167.5625 MIN= 140.0000 ATOMS:   11   13   15   21
+ EPHI: WARNING. bent improper torsion angle is 
+
+far from minimum for;
+    IPHI=    3  with deltaPHI= 172.3761 MIN= -40.0000 ATOMS:   13   15   21   23
+MINI>       60    340.56916     26.94661    206.19898      0.00700
+MINI INTERN>       28.98054    341.07625     13.32667     23.06961     43.70791
+MINI CROSS>        -2.87226      0.00000      0.00000      0.00000
+MINI EXTERN>       16.26810     23.95290      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000      9.32792      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -156.26848      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>       70    325.22460     15.34457    175.90868      0.00529
+MINI INTERN>       24.44995    337.45255     13.56538     23.00915     40.23688
+MINI CROSS>        -2.36236      0.00000      0.00000      0.00000
+MINI EXTERN>       16.44323     25.06997      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000      4.60144      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -157.24159      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+ EPHI: WARNING. bent improper torsion angle is 
+
+far from minimum for;
+    IPHI=    2  with deltaPHI= 159.9338 MIN= 140.0000 ATOMS:   11   13   15   21
+ EPHI: WARNING. bent improper torsion angle is 
+
+far from minimum for;
+    IPHI=    3  with deltaPHI= 178.4427 MIN= -40.0000 ATOMS:   13   15   21   23
+ EPHI: WARNING. bent improper torsion angle is 
+
+far from minimum for;
+    IPHI=    2  with deltaPHI= 149.8386 MIN= 140.0000 ATOMS:   11   13   15   21
+ EPHI: WARNING. bent improper torsion angle is 
+
+far from minimum for;
+    IPHI=    3  with deltaPHI=-152.5466 MIN= -40.0000 ATOMS:   13   15   21   23
+ EPHI: WARNING. bent improper torsion angle is 
+
+far from minimum for;
+    IPHI=    2  with deltaPHI= 155.9261 MIN= 140.0000 ATOMS:   11   13   15   21
+ EPHI: WARNING. bent improper torsion angle is 
+
+far from minimum for;
+    IPHI=    3  with deltaPHI=-174.1457 MIN= -40.0000 ATOMS:   13   15   21   23
+MINI>       80    320.87935      4.34525    515.40333      0.00219
+MINI INTERN>       22.78675    332.99148     12.87298     23.52036     33.79093
+MINI CROSS>        -1.42527      0.00000      0.00000      0.00000
+MINI EXTERN>       15.87865     24.88041      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000     12.23234      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -156.64929      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>       90    303.78981     17.08954    282.47524      0.00442
+MINI INTERN>       15.24286    322.82340     10.99114     24.54306     37.17482
+MINI CROSS>        -1.56972      0.00000      0.00000      0.00000
+MINI EXTERN>       16.27329     25.17439      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000     10.63685      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -157.50028      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>      100    285.63489     18.15492    116.80464      0.00235
+MINI INTERN>       18.30262    298.47836      7.76937     24.56720     47.88161
+MINI CROSS>        -2.95736      0.00000      0.00000      0.00000
+MINI EXTERN>       19.21380     26.87347      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000      6.23437      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -160.72855      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>      110    253.57740     32.05749    110.45973      0.00434
+MINI INTERN>       10.70732    284.11787      6.87332     25.77912     33.19810
+MINI CROSS>        -1.74427      0.00000      0.00000      0.00000
+MINI EXTERN>       18.23591     27.88765      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000      9.31108      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -160.78871      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+ EPHI: WARNING. bent improper torsion angle is 
+
+far from minimum for;
+    IPHI=    2  with deltaPHI= 111.0788 MIN= 140.0000 ATOMS:   11   13   15   21
+ EPHI: WARNING. bent improper torsion angle is 
+
+far from minimum for;
+    IPHI=    3  with deltaPHI=-120.8472 MIN= -40.0000 ATOMS:   13   15   21   23
+MINI>      120    261.83041     -8.25301    781.27945      0.00450
+MINI INTERN>       11.07093    282.54331      7.49446     25.48988     29.28476
+MINI CROSS>        -2.93147      0.00000      0.00000      0.00000
+MINI EXTERN>       18.19688     28.62400      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000     23.26510      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -161.20744      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>      130    248.28433     13.54608    160.07433      0.00249
+MINI INTERN>        9.79223    283.92876      7.12167     25.63396     32.10349
+MINI CROSS>        -2.28216      0.00000      0.00000      0.00000
+MINI EXTERN>       18.27067     28.19240      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000      6.58181      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -161.05851      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>      140    252.01330     -3.72897    681.35854      0.00870
+MINI INTERN>        8.28392    280.71515      7.52142     25.48267     21.87499
+MINI CROSS>        -3.15274      0.00000      0.00000      0.00000
+MINI EXTERN>       17.86390     29.65956      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000     26.25496      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -162.49053      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>      150    280.37536    -28.36206   1049.34050      0.00924
+MINI INTERN>        9.43328    276.97288      7.52882     25.41259     18.93449
+MINI CROSS>        -0.32762      0.00000      0.00000      0.00000
+MINI EXTERN>       17.66857     29.92166      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000     57.40115      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -162.57047      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>      160    228.75903     51.61633     57.51776      0.00224
+MINI INTERN>        8.28835    275.52861      7.58025     25.41514     23.38106
+MINI CROSS>        -1.97097      0.00000      0.00000      0.00000
+MINI EXTERN>       18.41705     29.38309      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000      4.92410      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -162.18764      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>      170    218.28184     10.47719     57.52132      0.01508
+MINI INTERN>       11.16784    264.54503      7.02035     26.51490     21.46612
+MINI CROSS>        -2.20670      0.00000      0.00000      0.00000
+MINI EXTERN>       19.35840     31.29604      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000      3.30041      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -164.18055      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+ UPDECI: Nonbond update at step       171
+ Generating nonbond list with Exclusion mode = 5
+ == PRIMARY == SPACE FOR      529 ATOM PAIRS AND        0 GROUP PAIRS
+
+ General atom nonbond list generation found:
+      367 ATOM PAIRS WERE FOUND FOR ATOM LIST
+        8 GROUP PAIRS REQUIRED ATOM SEARCHES
+
+MINI>      180    169.17968     49.10216     57.23774      0.01623
+MINI INTERN>       12.24885    221.54015      5.99613     30.83620      6.92375
+MINI CROSS>        -2.57836      0.00000      0.00000      0.00000
+MINI EXTERN>       25.42553     38.85801      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000      3.61749      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -173.68807      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>      190    159.04696     10.13272     43.55654      0.02272
+MINI INTERN>       17.34080    209.51416      6.05410     32.71026      4.86440
+MINI CROSS>        -2.18081      0.00000      0.00000      0.00000
+MINI EXTERN>       23.59341     38.50186      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000      3.39735      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -174.74857      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>      200    135.86704     23.17993     26.32766      0.01717
+MINI INTERN>       12.15314    201.00716      4.79531     33.77207      1.73337
+MINI CROSS>        -2.53505      0.00000      0.00000      0.00000
+MINI EXTERN>       18.46145     34.01548      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000      1.82601      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -169.36190      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+ UPDECI: Nonbond update at step       204
+ Generating nonbond list with Exclusion mode = 5
+ == PRIMARY == SPACE FOR      529 ATOM PAIRS AND        0 GROUP PAIRS
+
+ General atom nonbond list generation found:
+      363 ATOM PAIRS WERE FOUND FOR ATOM LIST
+       11 GROUP PAIRS REQUIRED ATOM SEARCHES
+
+MINI>      210    115.76810     20.09893     40.86843      0.02737
+MINI INTERN>       11.62201    191.80816      3.33452     26.92721      0.91103
+MINI CROSS>        -2.66328      0.00000      0.00000      0.00000
+MINI EXTERN>       16.01861     31.89291      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000      2.93782      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -167.02088      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>      220     99.93070     15.83740     28.41131      0.03273
+MINI INTERN>       10.00395    179.60147      3.54569     19.88478      2.30009
+MINI CROSS>        -2.27465      0.00000      0.00000      0.00000
+MINI EXTERN>       20.42766     37.86421      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000      0.73302      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -172.15551      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>      230     93.13650      6.79420      9.71369      0.01649
+MINI INTERN>        8.25071    177.14547      3.32434     17.24786      2.25263
+MINI CROSS>        -2.64593      0.00000      0.00000      0.00000
+MINI EXTERN>       20.89315     36.45710      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000      0.52886      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -170.31769      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+ UPDECI: Nonbond update at step       232
+ Generating nonbond list with Exclusion mode = 5
+ == PRIMARY == SPACE FOR      529 ATOM PAIRS AND        0 GROUP PAIRS
+
+ General atom nonbond list generation found:
+      372 ATOM PAIRS WERE FOUND FOR ATOM LIST
+       10 GROUP PAIRS REQUIRED ATOM SEARCHES
+
+MINI>      240     78.20721     14.92929     24.12577      0.01775
+MINI INTERN>        8.55584    159.33010      3.44907     15.52380      4.36613
+MINI CROSS>        -2.60604      0.00000      0.00000      0.00000
+MINI EXTERN>       19.16806     37.03164      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000      2.07843      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -168.68982      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+ UPDECI: Nonbond update at step       246
+ Generating nonbond list with Exclusion mode = 5
+ == PRIMARY == SPACE FOR      529 ATOM PAIRS AND        0 GROUP PAIRS
+
+ General atom nonbond list generation found:
+      379 ATOM PAIRS WERE FOUND FOR ATOM LIST
+        8 GROUP PAIRS REQUIRED ATOM SEARCHES
+
+MINI>      250     46.17214     32.03508     37.50920      0.03537
+MINI INTERN>        5.75081    136.43154      2.48551     15.72950      4.61002
+MINI CROSS>        -2.40670      0.00000      0.00000      0.00000
+MINI EXTERN>       11.29955     39.43178      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000      2.61051      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -169.77038      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>      260      6.45042     39.72172      9.17528      0.03426
+MINI INTERN>        9.15472     97.82749      1.77732     15.82041      2.83423
+MINI CROSS>        -2.49739      0.00000      0.00000      0.00000
+MINI EXTERN>        7.98418     46.92041      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000      0.84646      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -174.21742      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>      270     -8.79865     15.24906     14.41815      0.02212
+MINI INTERN>        4.21742     85.41057      0.88623     15.50998      2.09496
+MINI CROSS>        -2.26798      0.00000      0.00000      0.00000
+MINI EXTERN>        8.73908     47.31027      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000      0.56429      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -171.26348      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>      280    -13.08108      4.28244      4.08352      0.01428
+MINI INTERN>        4.32676     84.15310      0.69792     15.19544      1.18230
+MINI CROSS>        -2.54803      0.00000      0.00000      0.00000
+MINI EXTERN>        7.81891     48.20858      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000      0.56670      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -172.68276      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+ UPDECI: Nonbond update at step       282
+ Generating nonbond list with Exclusion mode = 5
+ == PRIMARY == SPACE FOR      529 ATOM PAIRS AND        0 GROUP PAIRS
+
+ General atom nonbond list generation found:
+      393 ATOM PAIRS WERE FOUND FOR ATOM LIST
+       10 GROUP PAIRS REQUIRED ATOM SEARCHES
+
+MINI>      290    -17.16993      4.08884      6.87987      0.01384
+MINI INTERN>        4.33905     81.27872      0.70262     15.04154      0.67734
+MINI CROSS>        -2.58437      0.00000      0.00000      0.00000
+MINI EXTERN>        6.93143     48.95411      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000      0.90125      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -173.41162      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>      300    -18.78754      1.61761      2.33348      0.00804
+MINI INTERN>        3.47492     80.49795      0.60693     14.33481      0.45056
+MINI CROSS>        -2.55622      0.00000      0.00000      0.00000
+MINI EXTERN>        7.36895     49.29699      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000      0.27936      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -172.54178      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>      310    -20.61388      1.82634     10.83179      0.01298
+MINI INTERN>        3.75097     80.13690      0.57899     13.51279      0.40758
+MINI CROSS>        -2.73906      0.00000      0.00000      0.00000
+MINI EXTERN>        6.51289     48.88796      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000      0.77846      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -172.44135      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+ UPDECI: Nonbond update at step       311
+ Generating nonbond list with Exclusion mode = 5
+ == PRIMARY == SPACE FOR      529 ATOM PAIRS AND        0 GROUP PAIRS
+
+ General atom nonbond list generation found:
+      399 ATOM PAIRS WERE FOUND FOR ATOM LIST
+       10 GROUP PAIRS REQUIRED ATOM SEARCHES
+
+MINI>      320    -26.45196      5.83809      3.65842      0.01293
+MINI INTERN>        3.43314     78.07270      0.88741     14.20230      0.51511
+MINI CROSS>        -2.70957      0.00000      0.00000      0.00000
+MINI EXTERN>        3.17315     45.44337      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000      0.49124      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -169.96082      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>      330    -31.86081      5.40885      7.92698      0.02199
+MINI INTERN>        3.31070     71.81016      0.88019     15.50537      0.96769
+MINI CROSS>        -2.74386      0.00000      0.00000      0.00000
+MINI EXTERN>        2.29174     43.32108      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000      0.71838      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -167.92226      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+ UPDECI: Nonbond update at step       331
+ Generating nonbond list with Exclusion mode = 5
+ == PRIMARY == SPACE FOR      529 ATOM PAIRS AND        0 GROUP PAIRS
+
+ General atom nonbond list generation found:
+      406 ATOM PAIRS WERE FOUND FOR ATOM LIST
+        9 GROUP PAIRS REQUIRED ATOM SEARCHES
+
+MINI>      340    -44.25108     12.39027      8.02572      0.02706
+MINI INTERN>        3.32039     57.80825      0.68472     15.14201      0.83163
+MINI CROSS>        -2.91225      0.00000      0.00000      0.00000
+MINI EXTERN>        3.03206     43.89189      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000      1.69820      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -167.74797      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>      350    -61.79728     17.54620      7.53394      0.02621
+MINI INTERN>        2.90197     37.31405      0.92714     16.00924      1.64705
+MINI CROSS>        -2.77484      0.00000      0.00000      0.00000
+MINI EXTERN>        2.41534     45.47793      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000      0.95572      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -166.67088      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+ UPDECI: Nonbond update at step       357
+ Generating nonbond list with Exclusion mode = 5
+ == PRIMARY == SPACE FOR      529 ATOM PAIRS AND        0 GROUP PAIRS
+
+ General atom nonbond list generation found:
+      409 ATOM PAIRS WERE FOUND FOR ATOM LIST
+       10 GROUP PAIRS REQUIRED ATOM SEARCHES
+
+MINI>      360    -69.86109      8.06381      3.06728      0.01523
+MINI INTERN>        2.27849     30.61861      0.53623     16.23654      0.91092
+MINI CROSS>        -2.78009      0.00000      0.00000      0.00000
+MINI EXTERN>        2.04044     47.35429      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000      0.93038      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -167.98692      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>      370    -76.73093      6.86983      9.79458      0.02731
+MINI INTERN>        3.28639     24.10961      0.39465     16.37568      0.80256
+MINI CROSS>        -2.47326      0.00000      0.00000      0.00000
+MINI EXTERN>        1.60208     46.99915      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000      0.22392      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -168.05173      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>      380    -83.26126      6.53033      8.01071      0.02646
+MINI INTERN>        3.38908     18.19957      0.58147     16.08285      1.54376
+MINI CROSS>        -2.67050      0.00000      0.00000      0.00000
+MINI EXTERN>        1.40668     48.15279      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000      0.76087      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -170.70782      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>      390    -86.98702      3.72576      4.07884      0.00922
+MINI INTERN>        2.60900     16.48776      0.37548     15.42373      1.06036
+MINI CROSS>        -2.51561      0.00000      0.00000      0.00000
+MINI EXTERN>        1.04641     48.83534      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000      0.05223      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -170.36172      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+ UPDECI: Nonbond update at step       391
+ Generating nonbond list with Exclusion mode = 5
+ == PRIMARY == SPACE FOR      529 ATOM PAIRS AND        0 GROUP PAIRS
+
+ General atom nonbond list generation found:
+      418 ATOM PAIRS WERE FOUND FOR ATOM LIST
+        9 GROUP PAIRS REQUIRED ATOM SEARCHES
+
+MINI>      400    -89.02722      2.04020      1.97091      0.00893
+MINI INTERN>        2.17505     14.42430      0.36970     15.14984      0.78648
+MINI CROSS>        -2.50848      0.00000      0.00000      0.00000
+MINI EXTERN>        1.28115     49.69375      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000      0.04824      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -170.44725      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>      410    -89.66820      0.64098      1.15787      0.00519
+MINI INTERN>        2.07683     13.77038      0.41170     14.90647      1.05702
+MINI CROSS>        -2.54340      0.00000      0.00000      0.00000
+MINI EXTERN>        1.52229     50.14430      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000      0.07911      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -171.09291      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>      420    -89.85820      0.19000      0.73001      0.00302
+MINI INTERN>        2.04435     13.73873      0.38057     14.85785      0.94413
+MINI CROSS>        -2.52355      0.00000      0.00000      0.00000
+MINI EXTERN>        1.36238     50.30868      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000      0.06466      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -171.03601      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>      430    -90.33507      0.47687      2.62334      0.00812
+MINI INTERN>        2.15316     13.77378      0.40958     14.39080      0.95473
+MINI CROSS>        -2.52043      0.00000      0.00000      0.00000
+MINI EXTERN>        1.21773     51.74347      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000      0.13513      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -172.59301      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>      440    -90.65056      0.31549      0.68827      0.00283
+MINI INTERN>        2.01661     13.79185      0.36114     14.32542      0.92148
+MINI CROSS>        -2.50682      0.00000      0.00000      0.00000
+MINI EXTERN>        0.96086     52.02008      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000      0.03392      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -172.57510      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>      450    -90.77324      0.12268      1.54662      0.00274
+MINI INTERN>        1.99949     14.00585      0.37063     14.37381      0.89494
+MINI CROSS>        -2.50126      0.00000      0.00000      0.00000
+MINI EXTERN>        0.80022     51.86180      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000      0.01675      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -172.59546      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>      460    -90.96302      0.18978      0.75040      0.00266
+MINI INTERN>        2.02551     13.84992      0.40930     14.25509      0.96428
+MINI CROSS>        -2.51703      0.00000      0.00000      0.00000
+MINI EXTERN>        0.78720     51.83436      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000      0.04843      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -172.62008      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>      470    -91.14383      0.18082      1.74212      0.00429
+MINI INTERN>        1.88469     13.94022      0.39867     14.17597      0.96447
+MINI CROSS>        -2.54568      0.00000      0.00000      0.00000
+MINI EXTERN>        0.58077     51.68855      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000      0.08133      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -172.31282      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>      480    -91.27076      0.12692      1.47404      0.00415
+MINI INTERN>        1.90340     13.79484      0.37056     14.11391      0.84545
+MINI CROSS>        -2.54915      0.00000      0.00000      0.00000
+MINI EXTERN>        0.76707     52.03923      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000      0.08890      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -172.64497      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>      490    -91.32636      0.05560      0.84253      0.00145
+MINI INTERN>        2.04628     13.83769      0.39375     13.98704      0.83140
+MINI CROSS>        -2.53730      0.00000      0.00000      0.00000
+MINI EXTERN>        0.70660     52.07466      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000      0.08948      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -172.75596      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>      500    -91.42641      0.10006      0.35895      0.00140
+MINI INTERN>        1.91487     14.16775      0.37811     13.85308      0.85961
+MINI CROSS>        -2.51327      0.00000      0.00000      0.00000
+MINI EXTERN>        0.57590     51.95431      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000      0.06346      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -172.68025      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+
+ ABNER> Minimization exiting with number of steps limit (  500) exceeded.
+
+ABNR MIN: Cycle      ENERgy      Delta-E         GRMS    Step-size
+ABNR INTERN:          BONDs       ANGLes       UREY-b    DIHEdrals    IMPRopers
+ABNR CROSS:           CMAPs        PMF1D        PMF2D        PRIMO
+ABNR EXTERN:        VDWaals         ELEC       HBONds          ASP         USER
+ABNR CONSTR:       HARMonic    CDIHedral          CIC     RESDistance       NOE
+ABNR PBEQ:             PBnp       PBelec        GBEnr         GSBP
+ ----------       ---------    ---------    ---------    ---------    ---------
+ABNR>      500    -91.42641      0.10006      0.35895      0.00210
+ABNR INTERN>        1.91487     14.16775      0.37811     13.85308      0.85961
+ABNR CROSS>        -2.51327      0.00000      0.00000      0.00000
+ABNR EXTERN>        0.57590     51.95431      0.00000      0.00000      0.00000
+ABNR CONSTR>        0.00000      0.06346      0.00000      0.00000      0.00000
+ABNR PBEQ>          0.00000      0.00000   -172.68025      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+  
+ CHARMM>    ener atom switch -
+ CHARMM>         vdis vatom vswitch  -
+ CHARMM>        ctonnb 12.0 ctofnb 14.0 cutnb 18.0
+
+ NONBOND OPTION FLAGS: 
+     ELEC     VDW      ATOMs    CDIElec  SWITch   VATOm    VSWItch 
+     BYGRoup  NOEXtnd  NOEWald 
+ CUTNB  = 18.000 CTEXNB =999.000 CTONNB = 12.000 CTOFNB = 14.000
+ CGONNB =  0.000 CGOFNB = 10.000
+ WMIN   =  1.500 WRNMXD =  0.500 E14FAC =  1.000 EPS    =  1.000
+ NBXMOD =      5
+ There are      418 atom  pairs and      163 atom  exclusions.
+ There are        0 group pairs and       19 group exclusions.
+ Generating nonbond list with Exclusion mode = 5
+ == PRIMARY == SPACE FOR      529 ATOM PAIRS AND        0 GROUP PAIRS
+
+ General atom nonbond list generation found:
+      439 ATOM PAIRS WERE FOUND FOR ATOM LIST
+        0 GROUP PAIRS REQUIRED ATOM SEARCHES
+
+ENER ENR:  Eval#     ENERgy      Delta-E         GRMS
+ENER INTERN:          BONDs       ANGLes       UREY-b    DIHEdrals    IMPRopers
+ENER CROSS:           CMAPs        PMF1D        PMF2D        PRIMO
+ENER EXTERN:        VDWaals         ELEC       HBONds          ASP         USER
+ENER CONSTR:       HARMonic    CDIHedral          CIC     RESDistance       NOE
+ENER PBEQ:             PBnp       PBelec        GBEnr         GSBP
+ ----------       ---------    ---------    ---------    ---------    ---------
+ENER>        0    -91.54248      0.11606      0.37105
+ENER INTERN>        1.91487     14.16775      0.37811     13.85308      0.85961
+ENER CROSS>        -2.51327      0.00000      0.00000      0.00000
+ENER EXTERN>       -0.13142     29.36537      0.00000      0.00000      0.00000
+ENER CONSTR>        0.00000      0.06346      0.00000      0.00000      0.00000
+ENER PBEQ>          0.00000      0.00000   -149.50005      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+  
+ CHARMM>    scalar fbeta set 5.0 sele segid AAA end
+ SELRPN>     33 atoms have been selected out of     33
+  
+ CHARMM>    mini sd nstep 500
+
+ NONBOND OPTION FLAGS: 
+     ELEC     VDW      ATOMs    CDIElec  SWITch   VATOm    VSWItch 
+     BYGRoup  NOEXtnd  NOEWald 
+ CUTNB  = 18.000 CTEXNB =999.000 CTONNB = 12.000 CTOFNB = 14.000
+ CGONNB =  0.000 CGOFNB = 10.000
+ WMIN   =  1.500 WRNMXD =  0.500 E14FAC =  1.000 EPS    =  1.000
+ NBXMOD =      5
+ There are      439 atom  pairs and      163 atom  exclusions.
+ There are        0 group pairs and       19 group exclusions.
+ Generating nonbond list with Exclusion mode = 5
+ == PRIMARY == SPACE FOR      529 ATOM PAIRS AND        0 GROUP PAIRS
+
+ General atom nonbond list generation found:
+      439 ATOM PAIRS WERE FOUND FOR ATOM LIST
+        0 GROUP PAIRS REQUIRED ATOM SEARCHES
+
+
+
+ STEEPD> An energy minimization has been requested.
+
+ NSTEP  =          500   NPRINT =           10
+ STEP   =    0.0200000   TOLFUN =    0.0000000
+ TOLGRD =    0.0000000   TOLSTP =    0.0000000
+
+MINI MIN: Cycle      ENERgy      Delta-E         GRMS    Step-size
+MINI INTERN:          BONDs       ANGLes       UREY-b    DIHEdrals    IMPRopers
+MINI CROSS:           CMAPs        PMF1D        PMF2D        PRIMO
+MINI EXTERN:        VDWaals         ELEC       HBONds          ASP         USER
+MINI CONSTR:       HARMonic    CDIHedral          CIC     RESDistance       NOE
+MINI PBEQ:             PBnp       PBelec        GBEnr         GSBP
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>        0    -91.54248      0.11606      0.37105      0.02000
+MINI INTERN>        1.91487     14.16775      0.37811     13.85308      0.85961
+MINI CROSS>        -2.51327      0.00000      0.00000      0.00000
+MINI EXTERN>       -0.13142     29.36537      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000      0.06346      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -149.50005      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>       10    -91.47998     -0.06250      1.69650      0.00065
+MINI INTERN>        2.16923     13.98430      0.41500     13.90105      0.84521
+MINI CROSS>        -2.53281      0.00000      0.00000      0.00000
+MINI EXTERN>       -0.06665     29.18743      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000      0.04965      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -149.43237      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>       20    -91.56101      0.08103      0.55063      0.00012
+MINI INTERN>        2.04208     14.05026      0.39607     13.89390      0.82488
+MINI CROSS>        -2.51965      0.00000      0.00000      0.00000
+MINI EXTERN>       -0.11135     29.22796      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000      0.05259      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -149.41776      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>       30    -91.56952      0.00851      0.14022      0.00005
+MINI INTERN>        2.00919     14.06872      0.39144     13.89287      0.82605
+MINI CROSS>        -2.52567      0.00000      0.00000      0.00000
+MINI EXTERN>       -0.12599     29.23776      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000      0.06710      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -149.41099      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>       40    -91.57209      0.00256      0.09057      0.00002
+MINI INTERN>        1.99087     14.08627      0.38812     13.89259      0.82910
+MINI CROSS>        -2.52422      0.00000      0.00000      0.00000
+MINI EXTERN>       -0.13515     29.24181      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000      0.06413      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -149.40560      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>       50    -91.57324      0.00116      0.14360      0.00003
+MINI INTERN>        1.98170     14.09630      0.38652     13.89182      0.83093
+MINI CROSS>        -2.52298      0.00000      0.00000      0.00000
+MINI EXTERN>       -0.14027     29.24345      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000      0.06166      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -149.40238      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>       60    -91.57410      0.00085      0.16060      0.00003
+MINI INTERN>        1.97624     14.10230      0.38573     13.89090      0.83199
+MINI CROSS>        -2.52249      0.00000      0.00000      0.00000
+MINI EXTERN>       -0.14366     29.24409      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000      0.06091      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -149.40010      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>       70    -91.57483      0.00073      0.18895      0.00003
+MINI INTERN>        1.97241     14.10683      0.38523     13.89014      0.83291
+MINI CROSS>        -2.52191      0.00000      0.00000      0.00000
+MINI EXTERN>       -0.14634     29.24396      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000      0.05991      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -149.39796      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>       80    -91.57550      0.00067      0.18149      0.00003
+MINI INTERN>        1.96980     14.10966      0.38501     13.88947      0.83348
+MINI CROSS>        -2.52183      0.00000      0.00000      0.00000
+MINI EXTERN>       -0.14840     29.24351      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000      0.05998      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -149.39617      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>       90    -91.57608      0.00058      0.19812      0.00003
+MINI INTERN>        1.96782     14.11214      0.38484     13.88900      0.83407
+MINI CROSS>        -2.52148      0.00000      0.00000      0.00000
+MINI EXTERN>       -0.15018     29.24264      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000      0.05940      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -149.39434      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>      100    -91.57686      0.00078      0.06203      0.00002
+MINI INTERN>        1.96615     14.11149      0.38519     13.88782      0.83349
+MINI CROSS>        -2.52407      0.00000      0.00000      0.00000
+MINI EXTERN>       -0.15180     29.24241      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000      0.06566      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -149.39319      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>      110    -91.57740      0.00054      0.05019      0.00002
+MINI INTERN>        1.96497     14.11321      0.38511     13.88759      0.83395
+MINI CROSS>        -2.52369      0.00000      0.00000      0.00000
+MINI EXTERN>       -0.15317     29.24116      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000      0.06492      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -149.39145      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>      120    -91.57798      0.00058      0.09422      0.00002
+MINI INTERN>        1.96383     14.11393      0.38522     13.88708      0.83400
+MINI CROSS>        -2.52438      0.00000      0.00000      0.00000
+MINI EXTERN>       -0.15463     29.23989      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000      0.06677      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -149.38970      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>      130    -91.57852      0.00054      0.06282      0.00002
+MINI INTERN>        1.96303     14.11549      0.38514     13.88702      0.83443
+MINI CROSS>        -2.52383      0.00000      0.00000      0.00000
+MINI EXTERN>       -0.15582     29.23830      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000      0.06559      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -149.38787      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>      140    -91.57905      0.00053      0.07835      0.00002
+MINI INTERN>        1.96230     14.11633      0.38519     13.88678      0.83456
+MINI CROSS>        -2.52399      0.00000      0.00000      0.00000
+MINI EXTERN>       -0.15701     29.23673      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000      0.06615      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -149.38610      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>      150    -91.57950      0.00045      0.12544      0.00002
+MINI INTERN>        1.96172     14.11666      0.38530     13.88649      0.83449
+MINI CROSS>        -2.52455      0.00000      0.00000      0.00000
+MINI EXTERN>       -0.15804     29.23532      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000      0.06765      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -149.38455      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>      160    -91.57998      0.00048      0.14873      0.00002
+MINI INTERN>        1.96120     14.11727      0.38536     13.88631      0.83452
+MINI CROSS>        -2.52478      0.00000      0.00000      0.00000
+MINI EXTERN>       -0.15905     29.23369      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000      0.06833      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -149.38284      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>      170    -91.58044      0.00046      0.14733      0.00003
+MINI INTERN>        1.96080     14.11804      0.38537     13.88624      0.83463
+MINI CROSS>        -2.52470      0.00000      0.00000      0.00000
+MINI EXTERN>       -0.15993     29.23208      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000      0.06826      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -149.38122      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>      180    -91.58099      0.00055      0.04674      0.00001
+MINI INTERN>        1.96044     14.12055      0.38509     13.88670      0.83541
+MINI CROSS>        -2.52277      0.00000      0.00000      0.00000
+MINI EXTERN>       -0.16082     29.22979      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000      0.06368      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -149.37906      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>      190    -91.58133      0.00034      0.16956      0.00003
+MINI INTERN>        1.96009     14.11924      0.38544     13.88606      0.83466
+MINI CROSS>        -2.52486      0.00000      0.00000      0.00000
+MINI EXTERN>       -0.16161     29.22873      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000      0.06887      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -149.37793      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>      200    -91.58176      0.00044      0.18645      0.00003
+MINI INTERN>        1.95978     14.11975      0.38548     13.88595      0.83463
+MINI CROSS>        -2.52501      0.00000      0.00000      0.00000
+MINI EXTERN>       -0.16240     29.22699      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000      0.06935      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -149.37627      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>      210    -91.58231      0.00054      0.04387      0.00001
+MINI INTERN>        1.95956     14.12249      0.38513     13.88655      0.83551
+MINI CROSS>        -2.52266      0.00000      0.00000      0.00000
+MINI EXTERN>       -0.16310     29.22472      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000      0.06372      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -149.37422      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>      220    -91.58275      0.00045      0.04405      0.00002
+MINI INTERN>        1.95931     14.12316      0.38513     13.88651      0.83553
+MINI CROSS>        -2.52259      0.00000      0.00000      0.00000
+MINI EXTERN>       -0.16382     29.22290      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000      0.06363      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -149.37253      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>      230    -91.58319      0.00043      0.05618      0.00002
+MINI INTERN>        1.95908     14.12406      0.38509     13.88655      0.83564
+MINI CROSS>        -2.52225      0.00000      0.00000      0.00000
+MINI EXTERN>       -0.16451     29.22101      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000      0.06292      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -149.37080      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>      240    -91.58362      0.00043      0.05909      0.00002
+MINI INTERN>        1.95888     14.12472      0.38509     13.88653      0.83566
+MINI CROSS>        -2.52214      0.00000      0.00000      0.00000
+MINI EXTERN>       -0.16517     29.21919      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000      0.06276      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -149.36914      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>      250    -91.58398      0.00037      0.10806      0.00002
+MINI INTERN>        1.95870     14.12594      0.38499     13.88668      0.83590
+MINI CROSS>        -2.52141      0.00000      0.00000      0.00000
+MINI EXTERN>       -0.16578     29.21725      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000      0.06114      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -149.36739      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>      260    -91.58439      0.00041      0.11758      0.00002
+MINI INTERN>        1.95853     14.12663      0.38497     13.88666      0.83592
+MINI CROSS>        -2.52124      0.00000      0.00000      0.00000
+MINI EXTERN>       -0.16637     29.21542      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000      0.06082      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -149.36575      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>      270    -91.58476      0.00037      0.12421      0.00002
+MINI INTERN>        1.95839     14.12724      0.38496     13.88664      0.83593
+MINI CROSS>        -2.52110      0.00000      0.00000      0.00000
+MINI EXTERN>       -0.16690     29.21374      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000      0.06060      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -149.36425      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>      280    -91.58515      0.00038      0.13555      0.00002
+MINI INTERN>        1.95825     14.12792      0.38494     13.88662      0.83595
+MINI CROSS>        -2.52091      0.00000      0.00000      0.00000
+MINI EXTERN>       -0.16743     29.21195      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000      0.06024      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -149.36266      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>      290    -91.58560      0.00045      0.04405      0.00001
+MINI INTERN>        1.95810     14.12675      0.38522     13.88608      0.83525
+MINI CROSS>        -2.52264      0.00000      0.00000      0.00000
+MINI EXTERN>       -0.16789     29.21085      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000      0.06435      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -149.36166      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>      300    -91.58587      0.00027      0.15591      0.00003
+MINI INTERN>        1.95800     14.12918      0.38490     13.88657      0.83598
+MINI CROSS>        -2.52057      0.00000      0.00000      0.00000
+MINI EXTERN>       -0.16840     29.20853      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000      0.05960      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -149.35966      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>      310    -91.58635      0.00048      0.04938      0.00001
+MINI INTERN>        1.95786     14.12766      0.38524     13.88591      0.83512
+MINI CROSS>        -2.52268      0.00000      0.00000      0.00000
+MINI EXTERN>       -0.16883     29.20748      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000      0.06459      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -149.35871      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>      320    -91.58669      0.00034      0.04001      0.00001
+MINI INTERN>        1.95777     14.12834      0.38520     13.88590      0.83517
+MINI CROSS>        -2.52240      0.00000      0.00000      0.00000
+MINI EXTERN>       -0.16924     29.20587      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000      0.06401      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -149.35731      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>      330    -91.58706      0.00037      0.04084      0.00001
+MINI INTERN>        1.95767     14.12881      0.38521     13.88581      0.83511
+MINI CROSS>        -2.52239      0.00000      0.00000      0.00000
+MINI EXTERN>       -0.16968     29.20417      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000      0.06408      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -149.35584      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>      340    -91.58742      0.00036      0.05079      0.00002
+MINI INTERN>        1.95758     14.12908      0.38525     13.88566      0.83498
+MINI CROSS>        -2.52258      0.00000      0.00000      0.00000
+MINI EXTERN>       -0.17009     29.20258      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000      0.06459      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -149.35447      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>      350    -91.58778      0.00036      0.05337      0.00002
+MINI INTERN>        1.95749     14.12953      0.38525     13.88555      0.83491
+MINI CROSS>        -2.52258      0.00000      0.00000      0.00000
+MINI EXTERN>       -0.17050     29.20088      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000      0.06468      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -149.35301      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>      360    -91.58810      0.00031      0.09965      0.00002
+MINI INTERN>        1.95741     14.12940      0.38536     13.88527      0.83463
+MINI CROSS>        -2.52318      0.00000      0.00000      0.00000
+MINI EXTERN>       -0.17086     29.19946      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000      0.06621      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -149.35179      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>      370    -91.58844      0.00034      0.10899      0.00002
+MINI INTERN>        1.95733     14.12976      0.38537     13.88514      0.83453
+MINI CROSS>        -2.52325      0.00000      0.00000      0.00000
+MINI EXTERN>       -0.17123     29.19783      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000      0.06647      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -149.35040      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>      380    -91.58876      0.00032      0.11480      0.00002
+MINI INTERN>        1.95727     14.13013      0.38539     13.88501      0.83446
+MINI CROSS>        -2.52328      0.00000      0.00000      0.00000
+MINI EXTERN>       -0.17156     29.19632      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000      0.06663      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -149.34912      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>      390    -91.58908      0.00033      0.12569      0.00002
+MINI INTERN>        1.95721     14.13047      0.38541     13.88486      0.83436
+MINI CROSS>        -2.52337      0.00000      0.00000      0.00000
+MINI EXTERN>       -0.17190     29.19473      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000      0.06693      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -149.34777      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>      400    -91.58947      0.00039      0.04033      0.00001
+MINI INTERN>        1.95716     14.13244      0.38515     13.88520      0.83493
+MINI CROSS>        -2.52169      0.00000      0.00000      0.00000
+MINI EXTERN>       -0.17225     29.19266      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000      0.06297      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -149.34604      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>      410    -91.58971      0.00023      0.14393      0.00003
+MINI INTERN>        1.95710     14.13113      0.38544     13.88456      0.83418
+MINI CROSS>        -2.52351      0.00000      0.00000      0.00000
+MINI EXTERN>       -0.17253     29.19168      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000      0.06744      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -149.34520      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>      420    -91.59012      0.00042      0.04481      0.00001
+MINI INTERN>        1.95706     14.13343      0.38513     13.88498      0.83487
+MINI CROSS>        -2.52149      0.00000      0.00000      0.00000
+MINI EXTERN>       -0.17288     29.18947      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000      0.06266      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -149.34335      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>      430    -91.59042      0.00029      0.03716      0.00001
+MINI INTERN>        1.95702     14.13364      0.38516     13.88481      0.83475
+MINI CROSS>        -2.52165      0.00000      0.00000      0.00000
+MINI EXTERN>       -0.17314     29.18810      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000      0.06310      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -149.34220      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>      440    -91.59074      0.00032      0.03755      0.00001
+MINI INTERN>        1.95698     14.13410      0.38516     13.88468      0.83471
+MINI CROSS>        -2.52158      0.00000      0.00000      0.00000
+MINI EXTERN>       -0.17343     29.18650      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000      0.06301      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -149.34086      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>      450    -91.59105      0.00031      0.04765      0.00001
+MINI INTERN>        1.95694     14.13476      0.38513     13.88460      0.83475
+MINI CROSS>        -2.52130      0.00000      0.00000      0.00000
+MINI EXTERN>       -0.17371     29.18485      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000      0.06243      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -149.33950      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>      460    -91.59137      0.00032      0.04882      0.00002
+MINI INTERN>        1.95690     14.13521      0.38512     13.88446      0.83471
+MINI CROSS>        -2.52123      0.00000      0.00000      0.00000
+MINI EXTERN>       -0.17399     29.18327      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000      0.06235      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -149.33818      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>      470    -91.59164      0.00028      0.09249      0.00002
+MINI INTERN>        1.95687     14.13621      0.38503     13.88448      0.83489
+MINI CROSS>        -2.52057      0.00000      0.00000      0.00000
+MINI EXTERN>       -0.17426     29.18155      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000      0.06090      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -149.33675      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>      480    -91.59194      0.00030      0.09896      0.00002
+MINI INTERN>        1.95684     14.13670      0.38502     13.88436      0.83487
+MINI CROSS>        -2.52044      0.00000      0.00000      0.00000
+MINI EXTERN>       -0.17451     29.17998      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000      0.06068      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -149.33544      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>      490    -91.59223      0.00028      0.10472      0.00002
+MINI INTERN>        1.95682     14.13717      0.38501     13.88423      0.83485
+MINI CROSS>        -2.52033      0.00000      0.00000      0.00000
+MINI EXTERN>       -0.17474     29.17849      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000      0.06049      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -149.33422      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>      500    -91.59251      0.00028      0.11581      0.00002
+MINI INTERN>        1.95679     14.13770      0.38499     13.88411      0.83486
+MINI CROSS>        -2.52014      0.00000      0.00000      0.00000
+MINI EXTERN>       -0.17498     29.17695      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000      0.06015      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -149.33294      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+
+ STEEPD> Minimization exiting with number of steps limit (       500) exceeded.
+
+STPD MIN: Cycle      ENERgy      Delta-E         GRMS    Step-size
+STPD INTERN:          BONDs       ANGLes       UREY-b    DIHEdrals    IMPRopers
+STPD CROSS:           CMAPs        PMF1D        PMF2D        PRIMO
+STPD EXTERN:        VDWaals         ELEC       HBONds          ASP         USER
+STPD CONSTR:       HARMonic    CDIHedral          CIC     RESDistance       NOE
+STPD PBEQ:             PBnp       PBelec        GBEnr         GSBP
+ ----------       ---------    ---------    ---------    ---------    ---------
+STPD>      500    -91.59251      0.00028      0.11581      0.00002
+STPD INTERN>        1.95679     14.13770      0.38499     13.88411      0.83486
+STPD CROSS>        -2.52014      0.00000      0.00000      0.00000
+STPD EXTERN>       -0.17498     29.17695      0.00000      0.00000      0.00000
+STPD CONSTR>        0.00000      0.06015      0.00000      0.00000      0.00000
+STPD PBEQ>          0.00000      0.00000   -149.33294      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+  
+ CHARMM>    mini abnr nstep 500
+
+ NONBOND OPTION FLAGS: 
+     ELEC     VDW      ATOMs    CDIElec  SWITch   VATOm    VSWItch 
+     BYGRoup  NOEXtnd  NOEWald 
+ CUTNB  = 18.000 CTEXNB =999.000 CTONNB = 12.000 CTOFNB = 14.000
+ CGONNB =  0.000 CGOFNB = 10.000
+ WMIN   =  1.500 WRNMXD =  0.500 E14FAC =  1.000 EPS    =  1.000
+ NBXMOD =      5
+ There are      439 atom  pairs and      163 atom  exclusions.
+ There are        0 group pairs and       19 group exclusions.
+ Generating nonbond list with Exclusion mode = 5
+ == PRIMARY == SPACE FOR      529 ATOM PAIRS AND        0 GROUP PAIRS
+
+ General atom nonbond list generation found:
+      439 ATOM PAIRS WERE FOUND FOR ATOM LIST
+        0 GROUP PAIRS REQUIRED ATOM SEARCHES
+
+
+
+ ABNER> An energy minimization has been requested.
+
+ EIGRNG =    0.0005000   MINDIM =            5
+ NPRINT =           10   NSTEP  =          500
+ PSTRCT =    0.0000000   SDSTP  =    0.0200000
+ STPLIM =    1.0000000   STRICT =    0.1000000
+ TOLFUN =    0.0000000   TOLGRD =    0.0000000
+ TOLITR =          100   TOLSTP =    0.0000000
+ FMEM   =    0.0000000
+MINI MIN: Cycle      ENERgy      Delta-E         GRMS    Step-size
+MINI INTERN:          BONDs       ANGLes       UREY-b    DIHEdrals    IMPRopers
+MINI CROSS:           CMAPs        PMF1D        PMF2D        PRIMO
+MINI EXTERN:        VDWaals         ELEC       HBONds          ASP         USER
+MINI CONSTR:       HARMonic    CDIHedral          CIC     RESDistance       NOE
+MINI PBEQ:             PBnp       PBelec        GBEnr         GSBP
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>        0    -91.59251      0.00028      0.11581      0.00000
+MINI INTERN>        1.95679     14.13770      0.38499     13.88411      0.83486
+MINI CROSS>        -2.52014      0.00000      0.00000      0.00000
+MINI EXTERN>       -0.17498     29.17695      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000      0.06015      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -149.33294      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>       10    -91.56226     -0.03025      3.30397      0.00383
+MINI INTERN>        1.98306     14.08967      0.39783     13.86210      0.82820
+MINI CROSS>        -2.55813      0.00000      0.00000      0.00000
+MINI EXTERN>       -0.18303     29.03094      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000      0.19690      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -149.20981      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>       20    -91.61793      0.05567      0.45011      0.00133
+MINI INTERN>        1.96707     14.16946      0.38876     13.86732      0.84124
+MINI CROSS>        -2.52289      0.00000      0.00000      0.00000
+MINI EXTERN>       -0.19227     28.94643      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000      0.05722      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -149.14026      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>       30    -91.62320      0.00527      0.07769      0.00047
+MINI INTERN>        1.92276     14.23344      0.37917     13.85020      0.81968
+MINI CROSS>        -2.51366      0.00000      0.00000      0.00000
+MINI EXTERN>       -0.20009     28.89239      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000      0.06120      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -149.06829      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>       40    -91.63140      0.00821      0.21902      0.00045
+MINI INTERN>        1.97290     14.24117      0.38667     13.82270      0.82465
+MINI CROSS>        -2.51400      0.00000      0.00000      0.00000
+MINI EXTERN>       -0.18852     28.76956      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000      0.06715      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -149.01368      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>       50    -91.63306      0.00165      0.13091      0.00026
+MINI INTERN>        1.96379     14.23370      0.38802     13.82547      0.82546
+MINI CROSS>        -2.51135      0.00000      0.00000      0.00000
+MINI EXTERN>       -0.18751     28.75892      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000      0.05881      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -148.98836      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>       60    -91.63499      0.00194      0.09949      0.00025
+MINI INTERN>        1.94925     14.19830      0.38860     13.83262      0.82074
+MINI CROSS>        -2.51333      0.00000      0.00000      0.00000
+MINI EXTERN>       -0.18059     28.77260      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000      0.06058      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -148.96377      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>       70    -91.63572      0.00073      0.02750      0.00015
+MINI INTERN>        1.95716     14.19276      0.38925     13.83524      0.81992
+MINI CROSS>        -2.51408      0.00000      0.00000      0.00000
+MINI EXTERN>       -0.18343     28.75190      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000      0.06331      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -148.94775      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>       80    -91.63658      0.00086      0.04248      0.00014
+MINI INTERN>        1.95330     14.18142      0.38650     13.84101      0.81954
+MINI CROSS>        -2.51515      0.00000      0.00000      0.00000
+MINI EXTERN>       -0.18343     28.71080      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000      0.06297      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -148.89355      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>       90    -91.63685      0.00027      0.04538      0.00014
+MINI INTERN>        1.95413     14.18640      0.38758     13.83591      0.81789
+MINI CROSS>        -2.51548      0.00000      0.00000      0.00000
+MINI EXTERN>       -0.18075     28.71896      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000      0.06490      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -148.90639      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>      100    -91.63700      0.00015      0.02214      0.00008
+MINI INTERN>        1.95797     14.19474      0.38854     13.83428      0.81840
+MINI CROSS>        -2.51565      0.00000      0.00000      0.00000
+MINI EXTERN>       -0.18375     28.70717      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000      0.06430      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -148.90302      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>      110    -91.63710      0.00010      0.01722      0.00005
+MINI INTERN>        1.95599     14.20259      0.38758     13.83107      0.81793
+MINI CROSS>        -2.51585      0.00000      0.00000      0.00000
+MINI EXTERN>       -0.18329     28.70928      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000      0.06428      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -148.90668      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>      120    -91.63734      0.00023      0.08207      0.00013
+MINI INTERN>        1.96231     14.22946      0.38932     13.81808      0.81507
+MINI CROSS>        -2.51618      0.00000      0.00000      0.00000
+MINI EXTERN>       -0.18789     28.69328      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000      0.06611      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -148.90689      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>      130    -91.63745      0.00011      0.02515      0.00007
+MINI INTERN>        1.95698     14.21904      0.38790     13.82033      0.81663
+MINI CROSS>        -2.51517      0.00000      0.00000      0.00000
+MINI EXTERN>       -0.18612     28.69607      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000      0.06443      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -148.89753      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>      140    -91.63748      0.00003      0.00849      0.00003
+MINI INTERN>        1.95745     14.21454      0.38839     13.82271      0.81684
+MINI CROSS>        -2.51537      0.00000      0.00000      0.00000
+MINI EXTERN>       -0.18685     28.69483      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000      0.06377      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -148.89379      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>      150    -91.63755      0.00007      0.02022      0.00004
+MINI INTERN>        1.95868     14.22262      0.38835     13.81945      0.81547
+MINI CROSS>        -2.51557      0.00000      0.00000      0.00000
+MINI EXTERN>       -0.18730     28.69138      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000      0.06414      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -148.89479      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>      160    -91.63770      0.00015      0.01942      0.00007
+MINI INTERN>        1.95720     14.23698      0.38881     13.81355      0.81290
+MINI CROSS>        -2.51521      0.00000      0.00000      0.00000
+MINI EXTERN>       -0.19137     28.66722      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000      0.06385      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -148.87164      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>      170    -91.63774      0.00003      0.01324      0.00004
+MINI INTERN>        1.95638     14.23155      0.38846     13.81429      0.81433
+MINI CROSS>        -2.51498      0.00000      0.00000      0.00000
+MINI EXTERN>       -0.19089     28.67000      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000      0.06399      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -148.87087      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>      180    -91.63777      0.00003      0.01550      0.00004
+MINI INTERN>        1.95548     14.23304      0.38846     13.81269      0.81423
+MINI CROSS>        -2.51490      0.00000      0.00000      0.00000
+MINI EXTERN>       -0.19251     28.66063      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000      0.06336      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -148.85825      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>      190    -91.63779      0.00001      0.00712      0.00002
+MINI INTERN>        1.95409     14.23071      0.38834     13.81220      0.81497
+MINI CROSS>        -2.51490      0.00000      0.00000      0.00000
+MINI EXTERN>       -0.19268     28.65813      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000      0.06380      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -148.85245      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>      200    -91.63780      0.00001      0.01333      0.00004
+MINI INTERN>        1.95341     14.22662      0.38830     13.81463      0.81414
+MINI CROSS>        -2.51522      0.00000      0.00000      0.00000
+MINI EXTERN>       -0.19194     28.65718      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000      0.06401      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -148.84892      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>      210    -91.63780      0.00001      0.00680      0.00001
+MINI INTERN>        1.95394     14.22569      0.38834     13.81440      0.81432
+MINI CROSS>        -2.51524      0.00000      0.00000      0.00000
+MINI EXTERN>       -0.19169     28.65723      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000      0.06425      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -148.84905      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>      220    -91.63781      0.00000      0.00305      0.00001
+MINI INTERN>        1.95412     14.22576      0.38834     13.81472      0.81438
+MINI CROSS>        -2.51528      0.00000      0.00000      0.00000
+MINI EXTERN>       -0.19161     28.65673      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000      0.06407      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -148.84905      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>      230    -91.63781      0.00000      0.00404      0.00001
+MINI INTERN>        1.95431     14.22700      0.38831     13.81457      0.81435
+MINI CROSS>        -2.51520      0.00000      0.00000      0.00000
+MINI EXTERN>       -0.19131     28.65564      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000      0.06414      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -148.84962      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>      240    -91.63781      0.00000      0.00234      0.00001
+MINI INTERN>        1.95490     14.22741      0.38834     13.81479      0.81451
+MINI CROSS>        -2.51519      0.00000      0.00000      0.00000
+MINI EXTERN>       -0.19159     28.65495      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000      0.06403      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -148.84995      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>      250    -91.63781      0.00000      0.00147      0.00001
+MINI INTERN>        1.95529     14.22802      0.38842     13.81527      0.81467
+MINI CROSS>        -2.51518      0.00000      0.00000      0.00000
+MINI EXTERN>       -0.19144     28.65348      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000      0.06402      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -148.85035      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>      260    -91.63781      0.00000      0.00205      0.00001
+MINI INTERN>        1.95470     14.22715      0.38837     13.81594      0.81478
+MINI CROSS>        -2.51518      0.00000      0.00000      0.00000
+MINI EXTERN>       -0.19084     28.65260      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000      0.06409      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -148.84943      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>      270    -91.63781      0.00000      0.00091      0.00000
+MINI INTERN>        1.95502     14.22641      0.38840     13.81599      0.81480
+MINI CROSS>        -2.51515      0.00000      0.00000      0.00000
+MINI EXTERN>       -0.19092     28.65297      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000      0.06401      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -148.84935      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>      280    -91.63781      0.00000      0.00150      0.00000
+MINI INTERN>        1.95474     14.22527      0.38836     13.81624      0.81475
+MINI CROSS>        -2.51514      0.00000      0.00000      0.00000
+MINI EXTERN>       -0.19067     28.65321      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000      0.06399      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -148.84857      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>      290    -91.63781      0.00000      0.00037      0.00000
+MINI INTERN>        1.95479     14.22482      0.38836     13.81631      0.81482
+MINI CROSS>        -2.51515      0.00000      0.00000      0.00000
+MINI EXTERN>       -0.19056     28.65316      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000      0.06402      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -148.84838      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>      300    -91.63781      0.00000      0.00065      0.00000
+MINI INTERN>        1.95490     14.22523      0.38837     13.81623      0.81478
+MINI CROSS>        -2.51513      0.00000      0.00000      0.00000
+MINI EXTERN>       -0.19073     28.65305      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000      0.06401      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -148.84852      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>      310    -91.63781      0.00000      0.00058      0.00000
+MINI INTERN>        1.95486     14.22553      0.38837     13.81613      0.81480
+MINI CROSS>        -2.51514      0.00000      0.00000      0.00000
+MINI EXTERN>       -0.19071     28.65287      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000      0.06404      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -148.84856      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>      320    -91.63781      0.00000      0.00022      0.00000
+MINI INTERN>        1.95492     14.22557      0.38838     13.81614      0.81479
+MINI CROSS>        -2.51513      0.00000      0.00000      0.00000
+MINI EXTERN>       -0.19077     28.65283      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000      0.06402      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -148.84856      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>      330    -91.63781      0.00000      0.00017      0.00000
+MINI INTERN>        1.95489     14.22564      0.38837     13.81611      0.81479
+MINI CROSS>        -2.51513      0.00000      0.00000      0.00000
+MINI EXTERN>       -0.19075     28.65274      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000      0.06403      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -148.84850      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>      340    -91.63781      0.00000      0.00020      0.00000
+MINI INTERN>        1.95491     14.22556      0.38838     13.81613      0.81478
+MINI CROSS>        -2.51513      0.00000      0.00000      0.00000
+MINI EXTERN>       -0.19077     28.65274      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000      0.06402      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -148.84844      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>      350    -91.63781      0.00000      0.00035      0.00000
+MINI INTERN>        1.95484     14.22537      0.38838     13.81616      0.81477
+MINI CROSS>        -2.51514      0.00000      0.00000      0.00000
+MINI EXTERN>       -0.19071     28.65264      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000      0.06404      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -148.84815      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>      360    -91.63781      0.00000      0.00043      0.00000
+MINI INTERN>        1.95483     14.22550      0.38838     13.81609      0.81477
+MINI CROSS>        -2.51513      0.00000      0.00000      0.00000
+MINI EXTERN>       -0.19070     28.65244      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000      0.06404      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -148.84803      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>      370    -91.63781      0.00000      0.00013      0.00000
+MINI INTERN>        1.95488     14.22567      0.38838     13.81607      0.81477
+MINI CROSS>        -2.51513      0.00000      0.00000      0.00000
+MINI EXTERN>       -0.19077     28.65236      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000      0.06403      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -148.84807      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>      380    -91.63781      0.00000      0.00005      0.00000
+MINI INTERN>        1.95490     14.22570      0.38838     13.81607      0.81476
+MINI CROSS>        -2.51513      0.00000      0.00000      0.00000
+MINI EXTERN>       -0.19079     28.65232      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000      0.06403      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -148.84806      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>      390    -91.63781      0.00000      0.00006      0.00000
+MINI INTERN>        1.95490     14.22572      0.38838     13.81607      0.81476
+MINI CROSS>        -2.51513      0.00000      0.00000      0.00000
+MINI EXTERN>       -0.19079     28.65227      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000      0.06403      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -148.84802      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>      400    -91.63781      0.00000      0.00008      0.00000
+MINI INTERN>        1.95489     14.22568      0.38838     13.81607      0.81476
+MINI CROSS>        -2.51513      0.00000      0.00000      0.00000
+MINI EXTERN>       -0.19078     28.65224      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000      0.06403      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -148.84795      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>      410    -91.63781      0.00000      0.00003      0.00000
+MINI INTERN>        1.95488     14.22566      0.38838     13.81607      0.81476
+MINI CROSS>        -2.51513      0.00000      0.00000      0.00000
+MINI EXTERN>       -0.19077     28.65225      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000      0.06403      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -148.84795      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>      420    -91.63781      0.00000      0.00003      0.00000
+MINI INTERN>        1.95487     14.22564      0.38838     13.81607      0.81476
+MINI CROSS>        -2.51513      0.00000      0.00000      0.00000
+MINI EXTERN>       -0.19076     28.65226      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000      0.06403      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -148.84794      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>      430    -91.63781      0.00000      0.00002      0.00000
+MINI INTERN>        1.95487     14.22562      0.38838     13.81608      0.81476
+MINI CROSS>        -2.51513      0.00000      0.00000      0.00000
+MINI EXTERN>       -0.19076     28.65227      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000      0.06403      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -148.84793      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>      440    -91.63781      0.00000      0.00001      0.00000
+MINI INTERN>        1.95487     14.22562      0.38838     13.81608      0.81476
+MINI CROSS>        -2.51513      0.00000      0.00000      0.00000
+MINI EXTERN>       -0.19076     28.65228      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000      0.06403      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -148.84793      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>      450    -91.63781      0.00000      0.00002      0.00000
+MINI INTERN>        1.95487     14.22561      0.38838     13.81608      0.81476
+MINI CROSS>        -2.51513      0.00000      0.00000      0.00000
+MINI EXTERN>       -0.19077     28.65228      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000      0.06403      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -148.84793      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>      460    -91.63781      0.00000      0.00002      0.00000
+MINI INTERN>        1.95487     14.22561      0.38838     13.81608      0.81476
+MINI CROSS>        -2.51513      0.00000      0.00000      0.00000
+MINI EXTERN>       -0.19077     28.65227      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000      0.06403      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -148.84793      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>      470    -91.63781      0.00000      0.00003      0.00000
+MINI INTERN>        1.95487     14.22562      0.38838     13.81609      0.81476
+MINI CROSS>        -2.51513      0.00000      0.00000      0.00000
+MINI EXTERN>       -0.19077     28.65227      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000      0.06403      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -148.84793      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>      480    -91.63781      0.00000      0.00001      0.00000
+MINI INTERN>        1.95487     14.22563      0.38838     13.81608      0.81476
+MINI CROSS>        -2.51513      0.00000      0.00000      0.00000
+MINI EXTERN>       -0.19077     28.65226      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000      0.06403      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -148.84793      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>      490    -91.63781      0.00000      0.00001      0.00000
+MINI INTERN>        1.95488     14.22563      0.38838     13.81608      0.81476
+MINI CROSS>        -2.51513      0.00000      0.00000      0.00000
+MINI EXTERN>       -0.19077     28.65226      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000      0.06403      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -148.84794      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>      500    -91.63781      0.00000      0.00001      0.00000
+MINI INTERN>        1.95488     14.22563      0.38838     13.81608      0.81476
+MINI CROSS>        -2.51513      0.00000      0.00000      0.00000
+MINI EXTERN>       -0.19077     28.65226      0.00000      0.00000      0.00000
+MINI CONSTR>        0.00000      0.06403      0.00000      0.00000      0.00000
+MINI PBEQ>          0.00000      0.00000   -148.84794      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+
+ ABNER> Minimization exiting with number of steps limit (  500) exceeded.
+
+ABNR MIN: Cycle      ENERgy      Delta-E         GRMS    Step-size
+ABNR INTERN:          BONDs       ANGLes       UREY-b    DIHEdrals    IMPRopers
+ABNR CROSS:           CMAPs        PMF1D        PMF2D        PRIMO
+ABNR EXTERN:        VDWaals         ELEC       HBONds          ASP         USER
+ABNR CONSTR:       HARMonic    CDIHedral          CIC     RESDistance       NOE
+ABNR PBEQ:             PBnp       PBelec        GBEnr         GSBP
+ ----------       ---------    ---------    ---------    ---------    ---------
+ABNR>      500    -91.63781      0.00000      0.00001      0.00000
+ABNR INTERN>        1.95488     14.22563      0.38838     13.81608      0.81476
+ABNR CROSS>        -2.51513      0.00000      0.00000      0.00000
+ABNR EXTERN>       -0.19077     28.65226      0.00000      0.00000      0.00000
+ABNR CONSTR>        0.00000      0.06403      0.00000      0.00000      0.00000
+ABNR PBEQ>          0.00000      0.00000   -148.84794      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+  
+ CHARMM>     
+  
+ CHARMM>    quick AAA 1 N  AAA 1 CA  AAA 1 C   AAA 2 N
+ QUICKA: Atom       1 AAA  1    ALA  N    is at:   0.81172   0.29459  -0.80943      
+ QUICKA: Atom       5 AAA  1    ALA  CA   is at:   2.04448   0.80915  -0.15003      
+ QUICKA: Atom      11 AAA  1    ALA  C    is at:   2.26237   2.31414  -0.37802      
+ QUICKA: Atom      13 AAA  2    ALA  N    is at:   3.31319   3.00681   0.12887      
+ QUICKA: The dihedral is:   179.718
+
+
+  
+ CHARMM>    quick AAA 1 C  AAA 2 N   AAA 2 CA  AAA 2 C
+ QUICKA: Atom      11 AAA  1    ALA  C    is at:   2.26237   2.31414  -0.37802      
+ QUICKA: Atom      13 AAA  2    ALA  N    is at:   3.31319   3.00681   0.12887      
+ QUICKA: Atom      15 AAA  2    ALA  CA   is at:   4.11653   2.89433   1.34919      
+ QUICKA: Atom      21 AAA  2    ALA  C    is at:   5.58981   3.14362   1.05324      
+ QUICKA: The dihedral is:   139.798
+
+
+  
+ CHARMM>    quick AAA 2 N  AAA 2 CA  AAA 2 C   AAA 3 N
+ QUICKA: Atom      13 AAA  2    ALA  N    is at:   3.31319   3.00681   0.12887      
+ QUICKA: Atom      15 AAA  2    ALA  CA   is at:   4.11653   2.89433   1.34919      
+ QUICKA: Atom      21 AAA  2    ALA  C    is at:   5.58981   3.14362   1.05324      
+ QUICKA: Atom      23 AAA  3    ALA  N    is at:   6.07630   2.62756  -0.09535      
+ QUICKA: The dihedral is:   -39.630
+
+
+  
+ CHARMM>    quick AAA 2 C  AAA 3 N   AAA 3 CA  AAA 3 C
+ QUICKA: Atom      21 AAA  2    ALA  C    is at:   5.58981   3.14362   1.05324      
+ QUICKA: Atom      23 AAA  3    ALA  N    is at:   6.07630   2.62756  -0.09535      
+ QUICKA: Atom      25 AAA  3    ALA  CA   is at:   7.39555   2.79200  -0.68940      
+ QUICKA: Atom      31 AAA  3    ALA  C    is at:   8.15877   4.12333  -0.43174      
+ QUICKA: The dihedral is:   -30.404
+
+
+  
+ CHARMM>    if ?GRMS LT 0.01 goto END_POINT
+ RDCMND substituted energy or value "?GRMS" to "9.085022E-06"
+ Comparing "9.085022E-06" and "0.01".
+ IF test evaluated as true.  Performing command
+  
+ CHARMM>    ! name change
+ CHARMM>    open unit 19 form write name /home/vmohan3/charmer/new_script/toph19_5fs_20k_ui.gromacs.trj.pdb
+ VOPEN> Attempting to open::/home/vmohan3/charmer/new_script/toph19_5fs_20k_ui.gromacs.trj.pdb::
+ OPNLGU> Unit  19 cannot be opened as /HOME/VMOHAN3/CHARMER/NEW_SCRIPT/TOPH19_5FS_20K_UI.GROMACS.TRJ.PDB                                                                                                                                                                                              
+
+      ***** LEVEL  0 WARNING FROM <OPNLGU> *****
+      ***** "OPEN" not possible.
+      ******************************************
+      BOMLEV ( -1) IS NOT REACHED. WRNLEV IS  5
+
+  
+ CHARMM>    write coor pdb  unit 19
+ RDTITL> *  TRIP ALL36-FORCE-FIELD
+ RDTITL> *
+  Write CHARMM-pdb format
+  
+ CHARMM>    stop
+ VCLOSE: Closing unit   18 with status "KEEP"
+ VCLOSE: Closing unit   19 with status "KEEP"
+$$$$$$  New timer profile $$$$$
+   List time                       0.00 Other:            0.00
+         Electrostatic & VDW             0.12 Other:            0.00
+         Gen Born time                   0.52 Other:            0.00
+      Nonbond force                   0.64 Other:            0.01
+         Bond energy                     0.01 Other:            0.00
+         Angle energy                    0.02 Other:            0.00
+         Dihedral energy                 0.06 Other:            0.00
+         Restraints energy               0.00 Other:            0.00
+      INTRNL energy                   0.10 Other:            0.01
+   Energy time                     0.75 Other:            0.01
+ Total time                      1.50 Other:            0.75
+
+                    NORMAL TERMINATION BY NORMAL STOP
+                    MOST SEVERE WARNING WAS AT LEVEL  0
+
+                    $$$$$ JOB ACCOUNTING INFORMATION $$$$$
+                     ELAPSED TIME:     1.50  SECONDS 
+                         CPU TIME:     1.49  SECONDS 

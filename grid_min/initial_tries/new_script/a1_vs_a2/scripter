@@ -1,0 +1,4 @@
+sed 's/__angle1__/-174.0/' <temp >>temp1
+rm temp
+sed 's/__angle2__/-168.0/' <temp1 >>temp
+rm temp1

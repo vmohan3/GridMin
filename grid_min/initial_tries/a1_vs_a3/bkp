@@ -1,0 +1,126 @@
+* Dynamics of dipeptides in implicit solvent
+*  file for starting points for NAMD runs
+
+bomlev -1
+OPEN UNIT 21 NAME /damsl/mddb/data/alanine_dipeptide/charmm/imp/inp/top_all36_prot_lipid.rtf READ FORM
+READ RTF card UNIT 21
+CLOSE UNIT 21
+
+OPEN UNIT 22 NAME /damsl/mddb/data/alanine_dipeptide/charmm/imp/inp/par_all36_prot_lipid.prm READ FORM
+READ PARA card UNIT 22
+CLOSE UNIT 22 
+
+
+open read unit 11 card name /damsl/mddb/data/alanine_dipeptide/charmm/imp/inp/acepar19.inp
+read aceparameters card unit 11
+close unit 11
+
+
+ read sequ card
+* tri-peptide
+*
+3
+ALA ALA ALA
+generate AAA first NTER last CTER setu
+! Initaial Coordinates: auto-generated or read from a crd file.
+ic para 
+ic seed 1 n 1 ca 1 c
+ic build
+print coor
+
+hbuild
+
+open write unit 18 card name /home/vmohan3/charmer/toph19_5fs_20k_ui.gromacs.trj0.psf
+write psf xplor card unit 18
+* psf file
+*
+
+! Phi Psi Modifier
+ic edit
+  dihe AAA 1 C AAA 2 N AAA 2 CA AAA 2 C  __angle1__
+  dihe AAA 2 C AAA 3 N AAA 3 CA AAA 3 C  __angle3__
+end
+ic build
+
+cons  dihe AAA 1 C AAA 2 N AAA 2 CA AAA 2 C force 100.0 min __angle1__
+cons  dihe AAA 2 C AAA 3 N AAA 3 CA AAA 3 C force 100.0 min __angle3__
+ 
+
+! cutoff options short
+ener atom switch -
+     vdis vatom vswitch  -
+    ctonnb 5.0 ctofnb 7.0 cutnb 8.0
+scalar fbeta set 5.0 sele segid AAA end
+
+
+
+GBorn P1 0.2163 P2 0.2564 P3 0.0144 P4 7.0038 P5 1.0 Lambda 0.8417 Epsilon 80.0
+
+mini sd nstep 500
+mini abnr nstep 500
+
+! mmfp 
+
+! DCD
+! open unit 20 unform write name /home/vmohan3/charmer/toph19_5fs_20k_ui.gromacs.trj0.dcd
+! Dynamics Options
+dyna leap langevin start nstep 1 timestep 0.001 -
+    iprfrq 100 ihtfrq 0 ieqfrq 0 ntrfrq 0  -
+    iunrea -1 iunwri -1 iuncrd 20 iunvel -1 kunit -1 -
+    nprint 5000 nsavc -1 nsavv 0 ihbfrq 0 inbfrq -1  -
+    ilbfrq 1000000 rbuffer 0.0 tbath 50.0 -
+    firstt 50.0 finalt 50.0 echeck 100000 -
+    iasors 0 iasvel 1 iscvel 0 ichecw 0 twindh 0.0 twindl 0.0
+mini sd nstep 500
+mini abnr nstep 500
+
+! cutoff options 
+ener atom switch -
+     vdis vatom vswitch  -
+    ctonnb 8.0 ctofnb 12.0 cutnb 16.0
+scalar fbeta set 5.0 sele segid AAA end
+
+
+
+
+! Dynamics Options
+dyna leap langevin start nstep 1 timestep 0.001 -
+    iprfrq 100 ihtfrq 0 ieqfrq 0 ntrfrq 0  -
+    iunrea -1 iunwri -1 iuncrd 20 iunvel -1 kunit -1 -
+    nprint 5000 nsavc -1 nsavv 0 ihbfrq 0 inbfrq -1  -
+    ilbfrq 1000000 rbuffer 0.0 tbath 150.0 -
+    firstt 150.0 finalt 150.0 echeck 100000 -
+    iasors 0 iasvel 1 iscvel 0 ichecw 0 twindh 0.0 twindl 0.0
+mini sd nstep 500
+mini abnr nstep 500
+! Dynamics Options
+dyna leap langevin start nstep 1 timestep 0.001 -
+    iprfrq 100 ihtfrq 0 ieqfrq 0 ntrfrq 0  -
+    iunrea -1 iunwri -1 iuncrd 20 iunvel -1 kunit -1 -
+    nprint 5000 nsavc -1 nsavv 0 ihbfrq 0 inbfrq -1  -
+    ilbfrq 1000000 rbuffer 0.0 tbath 300.0 -
+    firstt 300.0 finalt 300.0 echeck 100000 -
+    iasors 0 iasvel 1 iscvel 0 ichecw 0 twindh 0.0 twindl 0.0
+mini sd nstep 500
+mini abnr nstep 500
+
+
+
+
+dyna leap langevin start nstep 1 timestep 0.001 -
+    iprfrq 100 ihtfrq 0 ieqfrq 0 ntrfrq 0  -
+    iunrea -1 iunwri -1 iuncrd 20 iunvel -1 kunit -1 -
+    nprint 5000 nsavc -1 nsavv 0 ihbfrq 0 inbfrq -1  -
+    ilbfrq 1000000 rbuffer 0.0 tbath 300.0 -
+    firstt 300.0 finalt 300.0 echeck 100000 -
+    iasors 0 iasvel 1 iscvel 0 ichecw 0 twindh 0.0 twindl 0.0
+
+mini sd nstep 500
+mini abnr nstep 500
+
+
+! name change
+open unit 19 form write name /home/vmohan3/charmer/toph19_5fs_20k_ui.gromacs.trj0.pdb
+write coor pdb  unit 19
+*  trip all36-force-field
+*
